@@ -1,8 +1,9 @@
 import sys
 from PyQt5 import QtCore, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtCore import Qt, pyqtSignal
+from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
 from ui.ui_UltimateTicTacToe import ui_UltimateTicTacToeWindow
-
+from ui.ui_MainMenu import ui_MainMenuWindow
 FIRST_LETTER = "X"
 ZERO_LETTER = "0"
 BOARD_HEIGHT = 3
@@ -18,8 +19,46 @@ WIN_COMBINATIONS = (
     (2, 4, 6),
 )
 
-class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
+class UltimateMainWindow(QMainWindow):
 
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+
+        self.setStyleSheet("QWidget {color: #9A8C98; background-color: #22223B;}")
+        self.setWindowTitle("UltimateTicTacToe")
+        self.central_widget = QWidget(self)
+        self.setCentralWidget(self.central_widget)
+
+        self.stacked_widget = QStackedWidget()
+        self.UltimateTicTacToeInterface = UltimateTicTacToeWindow()
+        self.MainMenuInterface = MainMenuWindow()
+        self.UltimateTicTacToeInterface.button_reset_clicked.connect(self.init_btn_back)
+        self.MainMenuInterface.btn_start.clicked.connect(self.toggle_interface)
+        self.stacked_widget.addWidget(self.UltimateTicTacToeInterface)
+        self.stacked_widget.addWidget(self.MainMenuInterface)
+
+        layout = QVBoxLayout()
+        layout.addWidget(self.stacked_widget, alignment=QtCore.Qt.AlignCenter)
+        layout.setAlignment(Qt.AlignCenter)
+        self.central_widget.setLayout(layout)
+    def init_btn_back(self):
+        self.UltimateTicTacToeInterface.btn_back.clicked.connect(self.toggle_interface)
+
+    def toggle_interface(self):
+        current_index = self.stacked_widget.currentIndex()
+        next_index = (current_index + 1) % self.stacked_widget.count()
+        self.stacked_widget.setCurrentIndex(next_index)
+
+class MainMenuWindow(QMainWindow, ui_MainMenuWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
+    button_reset_clicked = pyqtSignal()
     def __init__(self):
         super().__init__()
 
@@ -47,6 +86,7 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
 
         self.zero_turn = False
         self.setupUi(self)
+
         self.setup_click_handler()
         self.label.setText(f"\nХод {self.ultimate_tictactoe_swapper(self.zero_turn)}")
 
@@ -85,6 +125,7 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
 
     def btn_reset_handler(self):
         self.new_game()
+        self.button_reset_clicked.emit()
 
     def setup_click_handler(self):
         self.global_field_0_local_field_0.clicked.connect(self.field_click_handler)
@@ -244,6 +285,8 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
 
         return 0 if var == ZERO_LETTER else 1
 
+
+
 if __name__ == '__main__':
 
     if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
@@ -253,6 +296,7 @@ if __name__ == '__main__':
         QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
 
     app = QApplication(sys.argv)
-    ex = UltimateTicTacToeWindow()
+    ex = UltimateMainWindow()
     ex.show()
     sys.exit(app.exec())
+
