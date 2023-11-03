@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>UltimateTicTacToeWindow</class>
+ <widget class="QMainWindow" name="UltimateTicTacToeWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>700</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -19,7 +19,7 @@
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>700</height>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -60,9 +60,30 @@ btn_back : QPushButton {
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="menubar">
       <item alignment="Qt::AlignLeft">
-       <widget class="QPushButton" name="btn_back">
+       <widget class="AnimatedButton" name="btn_back">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 25px</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -78,13 +99,19 @@ btn_back : QPushButton {
         </property>
        </widget>
       </item>
-      <item>
+      <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
        <widget class="QLabel" name="label">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>10</width>
+          <height>10</height>
+         </size>
         </property>
         <property name="layoutDirection">
          <enum>Qt::LeftToRight</enum>
@@ -101,9 +128,27 @@ btn_back : QPushButton {
        </widget>
       </item>
       <item alignment="Qt::AlignRight">
-       <widget class="QPushButton" name="btn_reset">
+       <widget class="AnimatedButton" name="btn_reset">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
         <property name="styleSheet">
-         <string notr="true">border-image : 'https://media.geeksforgeeks.org/wp-content/uploads/20200323172742/final97.png';</string>
+         <string notr="true">border-radius: 25px</string>
         </property>
         <property name="text">
          <string/>
@@ -123,13 +168,19 @@ btn_back : QPushButton {
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="MainLayout">
+     <layout class="QVBoxLayout" name="field_layout">
       <item>
        <layout class="QGridLayout" name="main_layout">
+        <property name="spacing">
+         <number>15</number>
+        </property>
         <item row="0" column="2">
          <layout class="QGridLayout" name="global_field_2">
-          <item row="1" column="0">
-           <widget class="PushButton" name="global_field_2_local_field_3">
+          <property name="spacing">
+           <number>15</number>
+          </property>
+          <item row="0" column="1">
+           <widget class="AnimatedButton" name="global_field_2_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -141,8 +192,8 @@ btn_back : QPushButton {
             </property>
            </widget>
           </item>
-          <item row="2" column="2">
-           <widget class="PushButton" name="global_field_2_local_field_8">
+          <item row="1" column="0">
+           <widget class="AnimatedButton" name="global_field_2_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -155,46 +206,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_2_local_field_7">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>-</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="PushButton" name="global_field_2_local_field_1">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>-</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="PushButton" name="global_field_2_local_field_0">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>-</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="PushButton" name="global_field_2_local_field_4">
+           <widget class="AnimatedButton" name="global_field_2_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -207,7 +219,20 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_2_local_field_2">
+           <widget class="AnimatedButton" name="global_field_2_local_field_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="AnimatedButton" name="global_field_2_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -220,7 +245,20 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_2_local_field_5">
+           <widget class="AnimatedButton" name="global_field_2_local_field_5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="AnimatedButton" name="global_field_2_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -233,7 +271,20 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_2_local_field_6">
+           <widget class="AnimatedButton" name="global_field_2_local_field_6">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>-</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="AnimatedButton" name="global_field_2_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -249,8 +300,17 @@ btn_back : QPushButton {
         </item>
         <item row="1" column="1">
          <layout class="QGridLayout" name="global_field_4">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_4_local_field_2">
+           <widget class="AnimatedButton" name="global_field_4_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -263,7 +323,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_4_local_field_7">
+           <widget class="AnimatedButton" name="global_field_4_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -276,7 +336,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_4_local_field_4">
+           <widget class="AnimatedButton" name="global_field_4_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -289,7 +349,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_4_local_field_5">
+           <widget class="AnimatedButton" name="global_field_4_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -302,7 +362,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_4_local_field_6">
+           <widget class="AnimatedButton" name="global_field_4_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -312,10 +372,16 @@ btn_back : QPushButton {
             <property name="text">
              <string>-</string>
             </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
+            </property>
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_4_local_field_0">
+           <widget class="AnimatedButton" name="global_field_4_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -328,7 +394,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_4_local_field_8">
+           <widget class="AnimatedButton" name="global_field_4_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -341,7 +407,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_4_local_field_1">
+           <widget class="AnimatedButton" name="global_field_4_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -354,7 +420,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_4_local_field_3">
+           <widget class="AnimatedButton" name="global_field_4_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -370,8 +436,11 @@ btn_back : QPushButton {
         </item>
         <item row="1" column="2">
          <layout class="QGridLayout" name="global_field_5">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_5_local_field_3">
+           <widget class="AnimatedButton" name="global_field_5_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -384,7 +453,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_5_local_field_8">
+           <widget class="AnimatedButton" name="global_field_5_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -397,7 +466,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_5_local_field_7">
+           <widget class="AnimatedButton" name="global_field_5_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -410,7 +479,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_5_local_field_1">
+           <widget class="AnimatedButton" name="global_field_5_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -423,7 +492,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_5_local_field_0">
+           <widget class="AnimatedButton" name="global_field_5_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -436,7 +505,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_5_local_field_4">
+           <widget class="AnimatedButton" name="global_field_5_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -449,7 +518,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_5_local_field_2">
+           <widget class="AnimatedButton" name="global_field_5_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -462,7 +531,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_5_local_field_5">
+           <widget class="AnimatedButton" name="global_field_5_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -475,7 +544,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_5_local_field_6">
+           <widget class="AnimatedButton" name="global_field_5_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -491,8 +560,11 @@ btn_back : QPushButton {
         </item>
         <item row="2" column="2">
          <layout class="QGridLayout" name="global_field_8">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_8_local_field_1">
+           <widget class="AnimatedButton" name="global_field_8_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -505,7 +577,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_8_local_field_3">
+           <widget class="AnimatedButton" name="global_field_8_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -518,7 +590,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_8_local_field_6">
+           <widget class="AnimatedButton" name="global_field_8_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -531,7 +603,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_8_local_field_2">
+           <widget class="AnimatedButton" name="global_field_8_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -544,7 +616,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_8_local_field_4">
+           <widget class="AnimatedButton" name="global_field_8_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -557,7 +629,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_8_local_field_5">
+           <widget class="AnimatedButton" name="global_field_8_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -570,7 +642,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_8_local_field_0">
+           <widget class="AnimatedButton" name="global_field_8_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -583,7 +655,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_8_local_field_7">
+           <widget class="AnimatedButton" name="global_field_8_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -596,7 +668,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_8_local_field_8">
+           <widget class="AnimatedButton" name="global_field_8_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -611,9 +683,12 @@ btn_back : QPushButton {
          </layout>
         </item>
         <item row="0" column="1">
-         <layout class="QGridLayout" name="global_field_1">
+         <layout class="QGridLayout" name="global_field_1" rowstretch="1,1,1">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_1_local_field_3">
+           <widget class="AnimatedButton" name="global_field_1_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -626,12 +701,18 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_1_local_field_8">
+           <widget class="AnimatedButton" name="global_field_1_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
             </property>
             <property name="text">
              <string>-</string>
@@ -639,7 +720,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_1_local_field_7">
+           <widget class="AnimatedButton" name="global_field_1_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -652,7 +733,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_1_local_field_1">
+           <widget class="AnimatedButton" name="global_field_1_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -665,7 +746,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_1_local_field_0">
+           <widget class="AnimatedButton" name="global_field_1_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -678,7 +759,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_1_local_field_4">
+           <widget class="AnimatedButton" name="global_field_1_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -691,7 +772,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_1_local_field_2">
+           <widget class="AnimatedButton" name="global_field_1_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -704,7 +785,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_1_local_field_5">
+           <widget class="AnimatedButton" name="global_field_1_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -717,7 +798,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_1_local_field_6">
+           <widget class="AnimatedButton" name="global_field_1_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -733,8 +814,11 @@ btn_back : QPushButton {
         </item>
         <item row="2" column="1">
          <layout class="QGridLayout" name="global_field_7">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_7_local_field_0">
+           <widget class="AnimatedButton" name="global_field_7_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -747,7 +831,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_7_local_field_7">
+           <widget class="AnimatedButton" name="global_field_7_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -760,7 +844,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_7_local_field_8">
+           <widget class="AnimatedButton" name="global_field_7_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -773,7 +857,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_7_local_field_2">
+           <widget class="AnimatedButton" name="global_field_7_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -786,7 +870,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_7_local_field_6">
+           <widget class="AnimatedButton" name="global_field_7_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -799,7 +883,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_7_local_field_4">
+           <widget class="AnimatedButton" name="global_field_7_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -812,7 +896,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_7_local_field_5">
+           <widget class="AnimatedButton" name="global_field_7_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -825,7 +909,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_7_local_field_1">
+           <widget class="AnimatedButton" name="global_field_7_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -838,7 +922,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_7_local_field_3">
+           <widget class="AnimatedButton" name="global_field_7_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -854,8 +938,11 @@ btn_back : QPushButton {
         </item>
         <item row="0" column="0">
          <layout class="QGridLayout" name="global_field_0">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_0_local_field_0">
+           <widget class="AnimatedButton" name="global_field_0_local_field_0">
             <property name="enabled">
              <bool>true</bool>
             </property>
@@ -871,7 +958,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_0_local_field_1">
+           <widget class="AnimatedButton" name="global_field_0_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -884,7 +971,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_0_local_field_2">
+           <widget class="AnimatedButton" name="global_field_0_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -897,7 +984,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_0_local_field_5">
+           <widget class="AnimatedButton" name="global_field_0_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -910,7 +997,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_0_local_field_4">
+           <widget class="AnimatedButton" name="global_field_0_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -923,7 +1010,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_0_local_field_6">
+           <widget class="AnimatedButton" name="global_field_0_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -936,7 +1023,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_0_local_field_8">
+           <widget class="AnimatedButton" name="global_field_0_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -949,7 +1036,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_0_local_field_3">
+           <widget class="AnimatedButton" name="global_field_0_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -962,7 +1049,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_0_local_field_7">
+           <widget class="AnimatedButton" name="global_field_0_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -978,8 +1065,11 @@ btn_back : QPushButton {
         </item>
         <item row="1" column="0">
          <layout class="QGridLayout" name="global_field_3">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_3_local_field_3">
+           <widget class="AnimatedButton" name="global_field_3_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -992,7 +1082,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_3_local_field_8">
+           <widget class="AnimatedButton" name="global_field_3_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1005,7 +1095,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_3_local_field_1">
+           <widget class="AnimatedButton" name="global_field_3_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1018,7 +1108,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_3_local_field_7">
+           <widget class="AnimatedButton" name="global_field_3_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1031,7 +1121,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_3_local_field_5">
+           <widget class="AnimatedButton" name="global_field_3_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1044,7 +1134,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_3_local_field_6">
+           <widget class="AnimatedButton" name="global_field_3_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1057,7 +1147,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_3_local_field_0">
+           <widget class="AnimatedButton" name="global_field_3_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1070,7 +1160,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_3_local_field_2">
+           <widget class="AnimatedButton" name="global_field_3_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1083,7 +1173,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_3_local_field_4">
+           <widget class="AnimatedButton" name="global_field_3_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1099,8 +1189,11 @@ btn_back : QPushButton {
         </item>
         <item row="2" column="0">
          <layout class="QGridLayout" name="global_field_6">
+          <property name="spacing">
+           <number>15</number>
+          </property>
           <item row="2" column="2">
-           <widget class="PushButton" name="global_field_6_local_field_8">
+           <widget class="AnimatedButton" name="global_field_6_local_field_8">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1113,7 +1206,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="2">
-           <widget class="PushButton" name="global_field_6_local_field_5">
+           <widget class="AnimatedButton" name="global_field_6_local_field_5">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1126,7 +1219,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="PushButton" name="global_field_6_local_field_1">
+           <widget class="AnimatedButton" name="global_field_6_local_field_1">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1139,7 +1232,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="2">
-           <widget class="PushButton" name="global_field_6_local_field_2">
+           <widget class="AnimatedButton" name="global_field_6_local_field_2">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1152,7 +1245,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="0" column="0">
-           <widget class="PushButton" name="global_field_6_local_field_0">
+           <widget class="AnimatedButton" name="global_field_6_local_field_0">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1165,7 +1258,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="PushButton" name="global_field_6_local_field_6">
+           <widget class="AnimatedButton" name="global_field_6_local_field_6">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1178,7 +1271,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="PushButton" name="global_field_6_local_field_4">
+           <widget class="AnimatedButton" name="global_field_6_local_field_4">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1191,7 +1284,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="PushButton" name="global_field_6_local_field_3">
+           <widget class="AnimatedButton" name="global_field_6_local_field_3">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1204,7 +1297,7 @@ btn_back : QPushButton {
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="PushButton" name="global_field_6_local_field_7">
+           <widget class="AnimatedButton" name="global_field_6_local_field_7">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
               <horstretch>0</horstretch>
@@ -1227,9 +1320,9 @@ btn_back : QPushButton {
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PushButton</class>
+   <class>AnimatedButton</class>
    <extends>QPushButton</extends>
-   <header>HoveringButton</header>
+   <header>AnimatedButton</header>
   </customwidget>
  </customwidgets>
  <tabstops>

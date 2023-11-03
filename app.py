@@ -4,8 +4,8 @@ import functools
 from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtCore import Qt, pyqtSignal, pyqtProperty, QPropertyAnimation, QEvent
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QVBoxLayout, QStyle, QWidget, QGraphicsEffect
-from ui.ui_UltimateTicTacToe import ui_UltimateTicTacToeWindow
-from ui.ui_MainMenu import ui_MainMenuWindow
+from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
+from ui.ui_MainMenu import Ui_MainMenuWindow
 FIRST_LETTER = "X"
 ZERO_LETTER = "0"
 BOARD_HEIGHT = 3
@@ -21,71 +21,6 @@ WIN_COMBINATIONS = (
     (2, 4, 6),
 )
 
-# class AnimationShadowEffect(QGraphicsDropShadowEffect):                         # Поменял !!!
-#     def __init__(self, color, *args, **kwargs):
-#         super(AnimationShadowEffect, self).__init__(*args, **kwargs)
-#         self.setColor(color)
-#         self.setOffset(0, 0)
-#         self.setBlurRadius(0)
-#         self._radius = 0
-#         self.animation = QPropertyAnimation(self)
-#         self.animation.setTargetObject(self)
-#         self.animation.setDuration(2000)            # Время одного цикла
-#         self.animation.setLoopCount(-1)             # Постоянный цикл
-#         self.animation.setPropertyName(b'radius')
-#         # Вставить значение
-#         self.animation.setKeyValueAt(0, 1)
-#         self.animation.setKeyValueAt(0.5, 30)
-#         self.animation.setKeyValueAt(1, 1)
-#
-#     def start(self):
-#         self.animation.start()
-#
-#     def stop(self, r=0):
-#         # Остановить анимацию и изменить значение радиуса
-#         self.animation.stop()
-#         self.radius = r
-#
-#     @pyqtProperty(int)
-#     def radius(self):
-#         return self._radius
-#
-#     @radius.setter
-#     def radius(self, r):
-#         self._radius = r
-#         self.setBlurRadius(r)
-def helper_function(widget, color):
-    widget.setStyleSheet("background-color: {}".format(color.name()))
-
-
-def apply_color_animation(widget, start_color, end_color, duration=1000):
-    anim = QtCore.QVariantAnimation(
-        widget,
-        duration=duration,
-        startValue=start_color,
-        endValue=end_color,
-        loopCount=1,
-    )
-    anim.valueChanged.connect(functools.partial(helper_function, widget))
-    anim.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
-
-class HoverAnimation():
-    def __init__(self, button, *args, **kwargs):
-        self.button = button
-        self.button.hover.connect(self.button_hover)
-
-    def button_hover(self, hover):
-
-        if hover == "enterEvent":
-            self.button.setStyleSheet("background-color: #2f2f50")
-        elif hover == "leaveEvent":
-            apply_color_animation(
-                self.button,
-                QtGui.QColor("#2f2f50"),
-                QtGui.QColor("#22223B"),
-                duration=700,
-            )
-
 class UltimateMainWindow(QMainWindow):
 
     def __init__(self):
@@ -93,7 +28,7 @@ class UltimateMainWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-
+        self.resize(800, 800)
         self.setStyleSheet("QWidget {color: #9A8C98; background-color: #22223B;}")
         self.setWindowTitle("UltimateTicTacToe")
         self.central_widget = QWidget(self)
@@ -110,7 +45,7 @@ class UltimateMainWindow(QMainWindow):
 
 
         layout = QVBoxLayout()
-        layout.addWidget(self.stacked_widget, alignment=QtCore.Qt.AlignCenter)
+        layout.addWidget(self.stacked_widget)
         layout.setAlignment(Qt.AlignCenter)
         self.central_widget.setLayout(layout)
     def init_btn_back(self):
@@ -121,102 +56,20 @@ class UltimateMainWindow(QMainWindow):
         next_index = (current_index + 1) % self.stacked_widget.count()
         self.stacked_widget.setCurrentIndex(next_index)
 
-class MainMenuWindow(QMainWindow, ui_MainMenuWindow):
+class MainMenuWindow(QMainWindow, Ui_MainMenuWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
-class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
+class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     button_reset_clicked = pyqtSignal()
+
     def __init__(self):
         super().__init__()
         self.new_game()
 
-        self.global_field_0_local_field_0.setCheckable(True)
-
-        self.Animation_global_field_0_local_field_0 = HoverAnimation(self.global_field_0_local_field_0)
-        self.Animation_global_field_0_local_field_1 = HoverAnimation(self.global_field_0_local_field_1)
-        self.Animation_global_field_0_local_field_2 = HoverAnimation(self.global_field_0_local_field_2)
-        self.Animation_global_field_0_local_field_3 = HoverAnimation(self.global_field_0_local_field_3)
-        self.Animation_global_field_0_local_field_4 = HoverAnimation(self.global_field_0_local_field_4)
-        self.Animation_global_field_0_local_field_5 = HoverAnimation(self.global_field_0_local_field_5)
-        self.Animation_global_field_0_local_field_6 = HoverAnimation(self.global_field_0_local_field_6)
-        self.Animation_global_field_0_local_field_7 = HoverAnimation(self.global_field_0_local_field_7)
-        self.Animation_global_field_0_local_field_8 = HoverAnimation(self.global_field_0_local_field_8)
-        self.Animation_global_field_1_local_field_0 = HoverAnimation(self.global_field_1_local_field_0)
-        self.Animation_global_field_1_local_field_1 = HoverAnimation(self.global_field_1_local_field_1)
-        self.Animation_global_field_1_local_field_2 = HoverAnimation(self.global_field_1_local_field_2)
-        self.Animation_global_field_1_local_field_3 = HoverAnimation(self.global_field_1_local_field_3)
-        self.Animation_global_field_1_local_field_4 = HoverAnimation(self.global_field_1_local_field_4)
-        self.Animation_global_field_1_local_field_5 = HoverAnimation(self.global_field_1_local_field_5)
-        self.Animation_global_field_1_local_field_6 = HoverAnimation(self.global_field_1_local_field_6)
-        self.Animation_global_field_1_local_field_7 = HoverAnimation(self.global_field_1_local_field_7)
-        self.Animation_global_field_1_local_field_8 = HoverAnimation(self.global_field_1_local_field_8)
-        self.Animation_global_field_2_local_field_0 = HoverAnimation(self.global_field_2_local_field_0)
-        self.Animation_global_field_2_local_field_1 = HoverAnimation(self.global_field_2_local_field_1)
-        self.Animation_global_field_2_local_field_2 = HoverAnimation(self.global_field_2_local_field_2)
-        self.Animation_global_field_2_local_field_3 = HoverAnimation(self.global_field_2_local_field_3)
-        self.Animation_global_field_2_local_field_4 = HoverAnimation(self.global_field_2_local_field_4)
-        self.Animation_global_field_2_local_field_5 = HoverAnimation(self.global_field_2_local_field_5)
-        self.Animation_global_field_2_local_field_6 = HoverAnimation(self.global_field_2_local_field_6)
-        self.Animation_global_field_2_local_field_7 = HoverAnimation(self.global_field_2_local_field_7)
-        self.Animation_global_field_2_local_field_8 = HoverAnimation(self.global_field_2_local_field_8)
-        self.Animation_global_field_3_local_field_0 = HoverAnimation(self.global_field_3_local_field_0)
-        self.Animation_global_field_3_local_field_1 = HoverAnimation(self.global_field_3_local_field_1)
-        self.Animation_global_field_3_local_field_2 = HoverAnimation(self.global_field_3_local_field_2)
-        self.Animation_global_field_3_local_field_3 = HoverAnimation(self.global_field_3_local_field_3)
-        self.Animation_global_field_3_local_field_4 = HoverAnimation(self.global_field_3_local_field_4)
-        self.Animation_global_field_3_local_field_5 = HoverAnimation(self.global_field_3_local_field_5)
-        self.Animation_global_field_3_local_field_6 = HoverAnimation(self.global_field_3_local_field_6)
-        self.Animation_global_field_3_local_field_7 = HoverAnimation(self.global_field_3_local_field_7)
-        self.Animation_global_field_3_local_field_8 = HoverAnimation(self.global_field_3_local_field_8)
-        self.Animation_global_field_4_local_field_0 = HoverAnimation(self.global_field_4_local_field_0)
-        self.Animation_global_field_4_local_field_1 = HoverAnimation(self.global_field_4_local_field_1)
-        self.Animation_global_field_4_local_field_2 = HoverAnimation(self.global_field_4_local_field_2)
-        self.Animation_global_field_4_local_field_3 = HoverAnimation(self.global_field_4_local_field_3)
-        self.Animation_global_field_4_local_field_4 = HoverAnimation(self.global_field_4_local_field_4)
-        self.Animation_global_field_4_local_field_5 = HoverAnimation(self.global_field_4_local_field_5)
-        self.Animation_global_field_4_local_field_6 = HoverAnimation(self.global_field_4_local_field_6)
-        self.Animation_global_field_4_local_field_7 = HoverAnimation(self.global_field_4_local_field_7)
-        self.Animation_global_field_4_local_field_8 = HoverAnimation(self.global_field_4_local_field_8)
-        self.Animation_global_field_5_local_field_0 = HoverAnimation(self.global_field_5_local_field_0)
-        self.Animation_global_field_5_local_field_1 = HoverAnimation(self.global_field_5_local_field_1)
-        self.Animation_global_field_5_local_field_2 = HoverAnimation(self.global_field_5_local_field_2)
-        self.Animation_global_field_5_local_field_3 = HoverAnimation(self.global_field_5_local_field_3)
-        self.Animation_global_field_5_local_field_4 = HoverAnimation(self.global_field_5_local_field_4)
-        self.Animation_global_field_5_local_field_5 = HoverAnimation(self.global_field_5_local_field_5)
-        self.Animation_global_field_5_local_field_6 = HoverAnimation(self.global_field_5_local_field_6)
-        self.Animation_global_field_5_local_field_7 = HoverAnimation(self.global_field_5_local_field_7)
-        self.Animation_global_field_5_local_field_8 = HoverAnimation(self.global_field_5_local_field_8)
-        self.Animation_global_field_6_local_field_0 = HoverAnimation(self.global_field_6_local_field_0)
-        self.Animation_global_field_6_local_field_1 = HoverAnimation(self.global_field_6_local_field_1)
-        self.Animation_global_field_6_local_field_2 = HoverAnimation(self.global_field_6_local_field_2)
-        self.Animation_global_field_6_local_field_3 = HoverAnimation(self.global_field_6_local_field_3)
-        self.Animation_global_field_6_local_field_4 = HoverAnimation(self.global_field_6_local_field_4)
-        self.Animation_global_field_6_local_field_5 = HoverAnimation(self.global_field_6_local_field_5)
-        self.Animation_global_field_6_local_field_6 = HoverAnimation(self.global_field_6_local_field_6)
-        self.Animation_global_field_6_local_field_7 = HoverAnimation(self.global_field_6_local_field_7)
-        self.Animation_global_field_6_local_field_8 = HoverAnimation(self.global_field_6_local_field_8)
-        self.Animation_global_field_7_local_field_0 = HoverAnimation(self.global_field_7_local_field_0)
-        self.Animation_global_field_7_local_field_1 = HoverAnimation(self.global_field_7_local_field_1)
-        self.Animation_global_field_7_local_field_2 = HoverAnimation(self.global_field_7_local_field_2)
-        self.Animation_global_field_7_local_field_3 = HoverAnimation(self.global_field_7_local_field_3)
-        self.Animation_global_field_7_local_field_4 = HoverAnimation(self.global_field_7_local_field_4)
-        self.Animation_global_field_7_local_field_5 = HoverAnimation(self.global_field_7_local_field_5)
-        self.Animation_global_field_7_local_field_6 = HoverAnimation(self.global_field_7_local_field_6)
-        self.Animation_global_field_7_local_field_7 = HoverAnimation(self.global_field_7_local_field_7)
-        self.Animation_global_field_7_local_field_8 = HoverAnimation(self.global_field_7_local_field_8)
-        self.Animation_global_field_8_local_field_0 = HoverAnimation(self.global_field_8_local_field_0)
-        self.Animation_global_field_8_local_field_1 = HoverAnimation(self.global_field_8_local_field_1)
-        self.Animation_global_field_8_local_field_2 = HoverAnimation(self.global_field_8_local_field_2)
-        self.Animation_global_field_8_local_field_3 = HoverAnimation(self.global_field_8_local_field_3)
-        self.Animation_global_field_8_local_field_4 = HoverAnimation(self.global_field_8_local_field_4)
-        self.Animation_global_field_8_local_field_5 = HoverAnimation(self.global_field_8_local_field_5)
-        self.Animation_global_field_8_local_field_6 = HoverAnimation(self.global_field_8_local_field_6)
-        self.Animation_global_field_8_local_field_7 = HoverAnimation(self.global_field_8_local_field_7)
-        self.Animation_global_field_8_local_field_8 = HoverAnimation(self.global_field_8_local_field_8)
-
     def new_game(self):
+
         self.game_pos = [
             [-1 for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
             for _ in range(BOARD_HEIGHT * BOARD_LENGTH)
@@ -239,8 +92,10 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
         self.zero_turn = False
         self.setupUi(self)
 
+        self.label.setText(f"Ход {self.ultimate_tictactoe_swapper(self.zero_turn)}")
+
         self.setup_click_handler()
-        self.label.setText(f"\nХод {self.ultimate_tictactoe_swapper(self.zero_turn)}")
+
 
     def field_click_handler(self):
 
@@ -262,7 +117,7 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
             self.current_global_field = self.local_field
 
             self.sender().setText(f"{self.ultimate_tictactoe_swapper(self.game_pos[self.global_field][self.local_field])}")
-            self.label.setText(f"\nХод {self.ultimate_tictactoe_swapper(self.zero_turn)}")
+            self.label.setText(f"Ход {self.ultimate_tictactoe_swapper(self.zero_turn)}")
 
             if self.local_win()[0]:
                 self.local_winner = self.local_win()[1]
@@ -372,7 +227,6 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
 
         self.btn_reset.clicked.connect(self.btn_reset_handler)
 
-
     def local_win(self):
 
         if tuple(self.local_zero_pos[self.global_field]) in WIN_COMBINATIONS:
@@ -438,8 +292,6 @@ class UltimateTicTacToeWindow(QMainWindow, ui_UltimateTicTacToeWindow):
 
         return 0 if var == ZERO_LETTER else 1
 
-
-
 if __name__ == '__main__':
 
     if hasattr(QtCore.Qt, 'AA_EnableHighDpiScaling'):
@@ -447,11 +299,10 @@ if __name__ == '__main__':
 
     if hasattr(QtCore.Qt, 'AA_UseHighDpiPixmaps'):
         QtWidgets.QApplication.setAttribute(QtCore.Qt.AA_UseHighDpiPixmaps, True)
-    for i in range(9):
-        for j in range(9):
-            print(f"self.Animation_global_field_{i}_local_field_{j} = HoverAnimation(self.global_field_{i}_local_field_{j})")
+
     app = QApplication(sys.argv)
     ex = UltimateMainWindow()
+    ex.resize(800, 800)
     ex.show()
     sys.exit(app.exec())
 

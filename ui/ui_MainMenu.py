@@ -11,16 +11,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class ui_MainMenuWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(662, 581)
+class Ui_MainMenuWindow(object):
+    def setupUi(self, MainMenuWindow):
+        MainMenuWindow.setObjectName("MainMenuWindow")
+        MainMenuWindow.resize(800, 800)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        sizePolicy.setHeightForWidth(MainMenuWindow.sizePolicy().hasHeightForWidth())
+        MainMenuWindow.setSizePolicy(sizePolicy)
+        self.centralwidget = QtWidgets.QWidget(MainMenuWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName("gridLayout")
@@ -40,12 +40,12 @@ class ui_MainMenuWindow(object):
         self.btn_start.setSizePolicy(sizePolicy)
         self.btn_start.setObjectName("btn_start")
         self.gridLayout.addWidget(self.btn_start, 2, 1, 1, 1, QtCore.Qt.AlignHCenter)
-        MainWindow.setCentralWidget(self.centralwidget)
+        MainMenuWindow.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(MainMenuWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainMenuWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainMenuWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.btn_start.setText(_translate("MainWindow", "start"))
+        MainMenuWindow.setWindowTitle(_translate("MainMenuWindow", "MainWindow"))
+        self.btn_start.setText(_translate("MainMenuWindow", "start"))
