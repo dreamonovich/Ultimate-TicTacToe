@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/back_icon.svg</file>
+    <file>icons/reset_icon.svg</file>
+  </qresource>
+</RCC>
