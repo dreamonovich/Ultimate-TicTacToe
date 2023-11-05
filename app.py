@@ -1,11 +1,14 @@
 import sys
-from time import sleep
-import functools
 from PyQt5 import QtCore, QtWidgets, QtGui
-from PyQt5.QtCore import Qt, pyqtSignal, pyqtProperty, QPropertyAnimation, QEvent
-from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QVBoxLayout, QStyle, QWidget, QGraphicsEffect
+from PyQt5.QtCore import Qt, QUrl, pyqtSignal
+from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
+from svghelper import set_color
+from themes import themes
+import current_theme
 from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
 from ui.ui_MainMenu import Ui_MainMenuWindow
+from ui.ui_Settings import Ui_SettingsWindow
+
 FIRST_LETTER = "X"
 ZERO_LETTER = "0"
 BOARD_HEIGHT = 3
@@ -26,10 +29,17 @@ class UltimateMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.initUI()
+        self.MainMenuInterface.settings_window.theme1.clicked.connect(self.theme_clicked)
+        self.MainMenuInterface.settings_window.theme2.clicked.connect(self.theme_clicked)
+        self.MainMenuInterface.settings_window.theme3.clicked.connect(self.theme_clicked)
+
+
+    def theme_clicked(self):
+        current_theme.current_theme = self.sender().objectName()
+        self.change_theme(current_theme.current_theme)
 
     def initUI(self):
         self.resize(800, 800)
-        self.setStyleSheet("QWidget {color: #9A8C98; background-color: #22223B;}")
         self.setWindowTitle("UltimateTicTacToe")
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
@@ -37,17 +47,21 @@ class UltimateMainWindow(QMainWindow):
         self.stacked_widget = QStackedWidget()
         self.UltimateTicTacToeInterface = UltimateTicTacToeWindow()
         self.MainMenuInterface = MainMenuWindow()
-        self.UltimateTicTacToeInterface.button_reset_clicked.connect(self.init_btn_back)
         self.init_btn_back()
-        self.MainMenuInterface.btn_start.clicked.connect(self.toggle_interface)
+        self.MainMenuInterface.btn_play.clicked.connect(self.toggle_interface)
         self.stacked_widget.addWidget(self.MainMenuInterface)
         self.stacked_widget.addWidget(self.UltimateTicTacToeInterface)
-
-
+        self.change_theme(current_theme.current_theme)
         layout = QVBoxLayout()
         layout.addWidget(self.stacked_widget)
         layout.setAlignment(Qt.AlignCenter)
         self.central_widget.setLayout(layout)
+
+    def change_theme(self, theme):
+        self.setStyleSheet("QWidget {"+f'color: {themes[theme]["text_color"]}; background-color: {themes[theme]["background_color"]};'+"}")
+        self.UltimateTicTacToeInterface.change_theme(theme)
+        self.MainMenuInterface.change_theme(theme)
+
     def init_btn_back(self):
         self.UltimateTicTacToeInterface.btn_back.clicked.connect(self.toggle_interface)
 
@@ -56,20 +70,109 @@ class UltimateMainWindow(QMainWindow):
         next_index = (current_index + 1) % self.stacked_widget.count()
         self.stacked_widget.setCurrentIndex(next_index)
 
+class SettingsWindow(QMainWindow, Ui_SettingsWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+
+    def change_theme(self, theme):
+        self.setStyleSheet(
+            "QWidget {" + f'color: {themes[theme]["text_color"]}; background-color: {themes[theme]["background_color"]};' + "}"
+            "QPushButton {\n"
+"    background-color: transparent;\n"
+"    border: none;\n"
+"}")
+
 class MainMenuWindow(QMainWindow, Ui_MainMenuWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
+        self.settings_window = SettingsWindow()
+
+        self.github_button.clicked.connect(lambda: QtGui.QDesktopServices().openUrl(QUrl("https://github.com/dreamonovich/Ultimate-TicTacToe")))
+
+        self.settings_button.clicked.connect(lambda: self.settings_window.show())
+    def change_theme(self, theme):
+        self.setStyleSheet(
+                            "QPushButton {\n"
+                            f"   background-color: {themes[theme]['button_color']};\n"
+                            "    border: none;\n"
+                            "    border-radius: 10px;\n"
+                            "}\n")
+
+        self.btn_play.change_theme(theme)
+        set_color(u"ui/icons/github_icon.svg", u"ui/icons/github_icon.svg", themes[theme]['text_color'])
+        github_icon = QtGui.QIcon()
+        github_icon.addFile(u"ui/icons/github_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.github_button.setIcon(github_icon)
+
+        set_color(u"ui/icons/settings_icon.svg", u"ui/icons/settings_icon.svg", themes[theme]['text_color'])
+        settings_icon = QtGui.QIcon()
+        settings_icon.addFile(u"ui/icons/settings_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.settings_button.setIcon(settings_icon)
+
+        self.settings_window.change_theme(theme)
+
 class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
-    button_reset_clicked = pyqtSignal()
 
     def __init__(self):
         super().__init__()
+        self.setupUi(self)
+        self.setup_click_handler()
         self.new_game()
 
-    def new_game(self):
+    def draw_board(self):
+        for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+            for local_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+                field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
 
+                field.setText(self.ultimate_tictactoe_swapper(self.game_pos[global_field_index][local_field_index]))
+                field.change_theme(current_theme.current_theme)
+
+    def change_theme(self, theme):
+
+        self.setStyleSheet("QWidget {\n"
+                            f"    color: {themes[theme]['text_color']};\n"
+                            f"    background-color: {themes[theme]['background_color']};\n"
+                            "    font-family: Rubik;\n"
+                            "    font-size: 16pt;\n"
+                            "}"
+                            "\n"
+                            "QFrame[frameShape=\"4\"],\n"
+                            "QFrame[frameShape=\"5\"]\n"
+                            "{\n"
+                            "    border: none;\n"
+                            f"   background: {themes[theme]['edge_color']};\n"
+                            "}"
+                            "QPushButton {\n"
+                            "    background-color: transparent;\n"
+                            "    border: none;\n"
+                            "    border-radius: 10px;\n"
+                            "}\n"
+                            )
+
+        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", themes[theme]['text_color'])
+        btn_back_icon = QtGui.QIcon()
+        btn_back_icon.addFile(u"ui/icons/back_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_back.setIcon(btn_back_icon)
+
+        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", themes[theme]['text_color'])
+        btn_reset_icon = QtGui.QIcon()
+        btn_reset_icon.addFile(u"ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_reset.setIcon(btn_reset_icon)
+
+        set_color(u"ui/icons/cross.svg", u"ui/icons/cross.svg", themes[theme]['text_color'])
+
+        set_color(u"ui/icons/circle.svg", u"ui/icons/circle.svg", themes[theme]['text_color'])
+
+        self.btn_back.setStyleSheet(f"background-color: {themes[theme]['background_color']};")
+
+        self.btn_reset.setStyleSheet(f"background-color: {themes[theme]['background_color']};")
+
+        self.draw_board()
+
+    def new_game(self):
         self.game_pos = [
             [-1 for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
             for _ in range(BOARD_HEIGHT * BOARD_LENGTH)
@@ -90,12 +193,10 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.global_winner = '0'
 
         self.zero_turn = False
-        self.setupUi(self)
 
         self.label.setText(f"Ход {self.ultimate_tictactoe_swapper(self.zero_turn)}")
 
-        self.setup_click_handler()
-
+        self.draw_board()
 
     def field_click_handler(self):
 
@@ -132,98 +233,13 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
     def btn_reset_handler(self):
         self.new_game()
-        self.button_reset_clicked.emit()
 
     def setup_click_handler(self):
-        self.global_field_0_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_0_local_field_8.clicked.connect(self.field_click_handler)
 
-        self.global_field_1_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_1_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_2_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_2_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_3_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_3_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_4_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_4_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_5_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_5_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_6_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_6_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_7_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_7_local_field_8.clicked.connect(self.field_click_handler)
-
-        self.global_field_8_local_field_0.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_1.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_2.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_3.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_4.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_5.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_6.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_7.clicked.connect(self.field_click_handler)
-        self.global_field_8_local_field_8.clicked.connect(self.field_click_handler)
+        for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+            for local_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+                field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
+                field.clicked.connect(self.field_click_handler)
 
         self.btn_reset.clicked.connect(self.btn_reset_handler)
 
@@ -280,7 +296,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
             if var == 1:
                 return FIRST_LETTER
             if var == -1:
-                return " "
+                return ""
             else:
                 return var
 
