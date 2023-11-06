@@ -41,7 +41,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.menubar = QtWidgets.QHBoxLayout()
         self.menubar.setObjectName("menubar")
-        self.btn_back = HoveringButton(self.centralwidget)
+        self.btn_back = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -69,7 +69,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.menubar.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
-        self.btn_reset = HoveringButton(self.centralwidget)
+        self.btn_reset = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -1850,5 +1850,5 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_5_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
         self.global_field_5_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
         self.global_field_5_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-from CustomButtons import Field, HoveringButton
+from CustomButtons import Field
 from ui import resources_rc

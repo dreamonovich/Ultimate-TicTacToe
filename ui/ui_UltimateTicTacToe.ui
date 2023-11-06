@@ -51,7 +51,7 @@ QFrame[frameShape=&quot;5&quot;]
     <item>
      <layout class="QHBoxLayout" name="menubar">
       <item alignment="Qt::AlignLeft">
-       <widget class="HoveringButton" name="btn_back">
+       <widget class="Field" name="btn_back">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -117,7 +117,7 @@ QFrame[frameShape=&quot;5&quot;]
        </widget>
       </item>
       <item alignment="Qt::AlignRight">
-       <widget class="HoveringButton" name="btn_reset">
+       <widget class="Field" name="btn_reset">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -4295,11 +4295,6 @@ QFrame[frameShape=&quot;5&quot;]
  <customwidgets>
   <customwidget>
    <class>Field</class>
-   <extends>QPushButton</extends>
-   <header>CustomButtons</header>
-  </customwidget>
-  <customwidget>
-   <class>HoveringButton</class>
    <extends>QPushButton</extends>
    <header>CustomButtons</header>
   </customwidget>

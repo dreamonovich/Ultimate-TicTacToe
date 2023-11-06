@@ -24,3 +24,4 @@ themes = {
     }
 }
 
+current_theme = "theme1"

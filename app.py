@@ -3,8 +3,7 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtCore import Qt, QUrl, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedWidget, QVBoxLayout, QWidget
 from svghelper import set_color
-from themes import themes
-import current_theme
+import themes_config
 from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
 from ui.ui_MainMenu import Ui_MainMenuWindow
 from ui.ui_Settings import Ui_SettingsWindow
@@ -35,8 +34,8 @@ class UltimateMainWindow(QMainWindow):
 
 
     def theme_clicked(self):
-        current_theme.current_theme = self.sender().objectName()
-        self.change_theme(current_theme.current_theme)
+        themes_config.current_theme = self.sender().objectName()
+        self.change_theme(themes_config.current_theme)
 
     def initUI(self):
         self.resize(800, 800)
@@ -51,14 +50,14 @@ class UltimateMainWindow(QMainWindow):
         self.MainMenuInterface.btn_play.clicked.connect(self.toggle_interface)
         self.stacked_widget.addWidget(self.MainMenuInterface)
         self.stacked_widget.addWidget(self.UltimateTicTacToeInterface)
-        self.change_theme(current_theme.current_theme)
+        self.change_theme(themes_config.current_theme)
         layout = QVBoxLayout()
         layout.addWidget(self.stacked_widget)
         layout.setAlignment(Qt.AlignCenter)
         self.central_widget.setLayout(layout)
 
     def change_theme(self, theme):
-        self.setStyleSheet("QWidget {"+f'color: {themes[theme]["text_color"]}; background-color: {themes[theme]["background_color"]};'+"}")
+        self.setStyleSheet("QWidget {"+f'color: {themes_config.themes[theme]["text_color"]}; background-color: {themes_config.themes[theme]["background_color"]};'+"}")
         self.UltimateTicTacToeInterface.change_theme(theme)
         self.MainMenuInterface.change_theme(theme)
 
@@ -77,7 +76,7 @@ class SettingsWindow(QMainWindow, Ui_SettingsWindow):
 
     def change_theme(self, theme):
         self.setStyleSheet(
-            "QWidget {" + f'color: {themes[theme]["text_color"]}; background-color: {themes[theme]["background_color"]};' + "}"
+            "QWidget {" + f'color: {themes_config.themes[theme]["text_color"]}; background-color: {themes_config.themes[theme]["background_color"]};' + "}"
             "QPushButton {\n"
 "    background-color: transparent;\n"
 "    border: none;\n"
@@ -96,18 +95,18 @@ class MainMenuWindow(QMainWindow, Ui_MainMenuWindow):
     def change_theme(self, theme):
         self.setStyleSheet(
                             "QPushButton {\n"
-                            f"   background-color: {themes[theme]['button_color']};\n"
+                            f"   background-color: {themes_config.themes[theme]['button_color']};\n"
                             "    border: none;\n"
                             "    border-radius: 10px;\n"
                             "}\n")
 
         self.btn_play.change_theme(theme)
-        set_color(u"ui/icons/github_icon.svg", u"ui/icons/github_icon.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/github_icon.svg", u"ui/icons/github_icon.svg", themes_config.themes[theme]['text_color'])
         github_icon = QtGui.QIcon()
         github_icon.addFile(u"ui/icons/github_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.github_button.setIcon(github_icon)
 
-        set_color(u"ui/icons/settings_icon.svg", u"ui/icons/settings_icon.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/settings_icon.svg", u"ui/icons/settings_icon.svg", themes_config.themes[theme]['text_color'])
         settings_icon = QtGui.QIcon()
         settings_icon.addFile(u"ui/icons/settings_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.settings_button.setIcon(settings_icon)
@@ -128,13 +127,13 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                 field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
 
                 field.setText(self.ultimate_tictactoe_swapper(self.game_pos[global_field_index][local_field_index]))
-                field.change_theme(current_theme.current_theme)
+                field.change_theme(themes_config.current_theme)
 
     def change_theme(self, theme):
 
         self.setStyleSheet("QWidget {\n"
-                            f"    color: {themes[theme]['text_color']};\n"
-                            f"    background-color: {themes[theme]['background_color']};\n"
+                            f"    color: {themes_config.themes[theme]['text_color']};\n"
+                            f"    background-color: {themes_config.themes[theme]['background_color']};\n"
                             "    font-family: Rubik;\n"
                             "    font-size: 16pt;\n"
                             "}"
@@ -143,7 +142,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                             "QFrame[frameShape=\"5\"]\n"
                             "{\n"
                             "    border: none;\n"
-                            f"   background: {themes[theme]['edge_color']};\n"
+                            f"   background: {themes_config.themes[theme]['edge_color']};\n"
                             "}"
                             "QPushButton {\n"
                             "    background-color: transparent;\n"
@@ -152,23 +151,25 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                             "}\n"
                             )
 
-        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", themes_config.themes[theme]['text_color'])
         btn_back_icon = QtGui.QIcon()
         btn_back_icon.addFile(u"ui/icons/back_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_back.setIcon(btn_back_icon)
 
-        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", themes_config.themes[theme]['text_color'])
         btn_reset_icon = QtGui.QIcon()
         btn_reset_icon.addFile(u"ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_reset.setIcon(btn_reset_icon)
 
-        set_color(u"ui/icons/cross.svg", u"ui/icons/cross.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/cross.svg", u"ui/icons/cross.svg", themes_config.themes[theme]['text_color'])
 
-        set_color(u"ui/icons/circle.svg", u"ui/icons/circle.svg", themes[theme]['text_color'])
+        set_color(u"ui/icons/circle.svg", u"ui/icons/circle.svg", themes_config.themes[theme]['text_color'])
 
-        self.btn_back.setStyleSheet(f"background-color: {themes[theme]['background_color']};")
+        self.btn_back.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_back.change_theme(theme)
 
-        self.btn_reset.setStyleSheet(f"background-color: {themes[theme]['background_color']};")
+        self.btn_reset.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_reset.change_theme(theme)
 
         self.draw_board()
 

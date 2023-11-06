@@ -1,6 +1,5 @@
 from PyQt5 import QtCore, QtWidgets, QtGui
-from themes import themes
-import current_theme
+import themes_config
 import functools
 
 class Field(QtWidgets.QPushButton):
@@ -9,7 +8,7 @@ class Field(QtWidgets.QPushButton):
     def __init__(self, parent=None):
         super(Field, self).__init__(parent)
         self.button_signal.connect(self.animate_button)
-        self.change_theme(current_theme.current_theme)
+        self.change_theme(themes_config.current_theme)
         pass
 
     def enterEvent(self, event):
@@ -23,7 +22,7 @@ class Field(QtWidgets.QPushButton):
         self.init_animation()
 
         if button_signal == "enterEvent":
-            self.setStyleSheet("Field {background-color: " + themes[current_theme.current_theme]["hover_color"] + ";}")
+            self.setStyleSheet("Field {background-color: " + themes_config.themes[themes_config.current_theme]["hover_color"] + ";}")
 
 
         elif button_signal == "leaveEvent":
@@ -48,9 +47,10 @@ class Field(QtWidgets.QPushButton):
         )
 
     def change_theme(self, theme):
-        self.hover_color = QtGui.QColor(themes[theme]["hover_color"])
-        self.end_color = QtGui.QColor(themes[theme]["background_color"])
-        self.setStyleSheet(f"background-color: {themes[theme]['background_color']};")
+
+        self.hover_color = QtGui.QColor(themes_config.themes[theme]["hover_color"])
+        self.end_color = QtGui.QColor(themes_config.themes[theme]["background_color"])
+        self.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
 
 
     def helper_function(self, widget, color):
@@ -62,7 +62,7 @@ class HoveringButton(Field):
         super(HoveringButton, self).__init__(parent)
 
     def change_theme(self, theme):
-        self.hover_color = QtGui.QColor(themes[theme]["hover_color"])
-        self.end_color = QtGui.QColor(themes[theme]["button_color"])
-        self.setStyleSheet(f"background-color: {themes[theme]['button_color']};")
+        self.hover_color = QtGui.QColor(themes_config.themes[theme]["hover_color"])
+        self.end_color = QtGui.QColor(themes_config.themes[theme]["button_color"])
+        self.setStyleSheet(f"background-color: {themes_config.themes[theme]['button_color']};")
 
