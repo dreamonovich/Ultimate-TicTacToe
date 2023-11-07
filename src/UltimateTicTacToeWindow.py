@@ -57,14 +57,14 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                             "}\n"
                             )
 
-        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"src/ui/icons/back_icon.svg", u"src/ui/icons/back_icon.svg", themes_config.themes[theme]['text_color'])
         btn_back_icon = QtGui.QIcon()
-        btn_back_icon.addFile(u"ui/icons/back_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        btn_back_icon.addFile(u"src/ui/icons/back_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_back.setIcon(btn_back_icon)
 
-        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"src/ui/icons/reset_icon.svg", u"src/ui/icons/reset_icon.svg", themes_config.themes[theme]['text_color'])
         btn_reset_icon = QtGui.QIcon()
-        btn_reset_icon.addFile(u"ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        btn_reset_icon.addFile(u"src/ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_reset.setIcon(btn_reset_icon)
 
         self.btn_back.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")

@@ -45,8 +45,7 @@ class Ui_SettingsWindow(object):
         self.theme1.setMinimumSize(QtCore.QSize(50, 50))
         self.theme1.setMaximumSize(QtCore.QSize(50, 50))
         self.theme1.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\ui\\icons/theme1_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon = QtGui.QIcon(u"src/ui/icons/theme1_icon.png")
         self.theme1.setIcon(icon)
         self.theme1.setIconSize(QtCore.QSize(30, 30))
         self.theme1.setObjectName("theme1")
@@ -60,8 +59,7 @@ class Ui_SettingsWindow(object):
         self.theme2.setMinimumSize(QtCore.QSize(50, 50))
         self.theme2.setMaximumSize(QtCore.QSize(50, 50))
         self.theme2.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\ui\\icons/theme2_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1 = QtGui.QIcon(u"src/ui/icons/theme2_icon.png")
         self.theme2.setIcon(icon1)
         self.theme2.setIconSize(QtCore.QSize(30, 30))
         self.theme2.setObjectName("theme2")
@@ -75,8 +73,7 @@ class Ui_SettingsWindow(object):
         self.theme3.setMinimumSize(QtCore.QSize(50, 50))
         self.theme3.setMaximumSize(QtCore.QSize(50, 50))
         self.theme3.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\ui\\icons/theme3_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2 = QtGui.QIcon(u"src/ui/icons/theme3_icon.png")
         self.theme3.setIcon(icon2)
         self.theme3.setIconSize(QtCore.QSize(30, 30))
         self.theme3.setObjectName("theme3")
@@ -98,6 +95,6 @@ class Ui_SettingsWindow(object):
 
     def retranslateUi(self, SettingsWindow):
         _translate = QtCore.QCoreApplication.translate
-        SettingsWindow.setWindowTitle(_translate("SettingsWindow", "Settings"))
+        SettingsWindow.setWindowTitle(_translate("SettingsWindow", "Настройки"))
         self.label_settings.setText(_translate("SettingsWindow", "Настройки"))
         self.label_theme.setText(_translate("SettingsWindow", "Тема"))
