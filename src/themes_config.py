@@ -24,4 +24,4 @@ themes = {
     }
 }
 
-current_theme = "theme2"
+current_theme = "theme3"
