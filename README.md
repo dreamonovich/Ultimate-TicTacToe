@@ -33,3 +33,10 @@ python -m venv venv
 ```bash
 pip install -r requirements.txt
 ```
+## Usage
+
+Run application with command:
+
+```bash
+python src/app.py
+```
