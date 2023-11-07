@@ -98,6 +98,6 @@ class Ui_SettingsWindow(object):
 
     def retranslateUi(self, SettingsWindow):
         _translate = QtCore.QCoreApplication.translate
-        SettingsWindow.setWindowTitle(_translate("SettingsWindow", "MainWindow"))
+        SettingsWindow.setWindowTitle(_translate("SettingsWindow", "Settings"))
         self.label_settings.setText(_translate("SettingsWindow", "Настройки"))
         self.label_theme.setText(_translate("SettingsWindow", "Тема"))
