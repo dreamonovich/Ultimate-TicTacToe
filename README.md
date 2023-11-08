@@ -27,8 +27,13 @@ cd Ultimate-TicTacToe
 ```bash
 python -m venv venv
 ```
+5. Activate it:
 
-5. Install dependencies:
+```bash
+venv\Scripts\activate
+```
+
+6. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
