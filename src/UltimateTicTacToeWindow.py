@@ -1,5 +1,6 @@
-from PyQt5 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
+from PyQt5.QtCore import Qt
 from svghelper import set_color
 import themes_config
 from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
@@ -24,6 +25,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.current_global_field = 0
         self.setup_click_handler()
         self.new_game()
 
@@ -101,10 +103,27 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
         self.draw_board()
 
-    def field_click_handler(self):
+    def keyPressEvent(self, event):
+        press_list = [6, 7, 8, 3, 4, 5, 0, 1, 2]
+        if event.key() >= Qt.Key_1 and event.key() <= Qt.Key_9:
+            # print(self.global_field, event.key() - 49)
+            print(self.current_global_field)
+            field = self.findChild(QtCore.QObject, f"global_field_{0 if self.current_global_field == -1 else self.current_global_field}_local_field_{press_list[event.key() - 49]}")
+            field.click()
+
+
+
+    def field_click_handler(self, *args, global_field="default", local_field="default"):
+
+        if local_field == 'default':
+            self.global_field, self.local_field = int(self.sender().objectName().split('_')[2]), int(
+                self.sender().objectName().split('_')[5])  # global_field_0_local_field_0
+        else:
+            self.local_field = local_field
+
+
 
         while True:
-            self.global_field, self.local_field = int(self.sender().objectName().split('_')[2]), int(self.sender().objectName().split('_')[5]) # global_field_0_local_field_0
 
             if not self.field_is_free():
                 print("Не свободно")
