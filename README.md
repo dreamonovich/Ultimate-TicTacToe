@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-# Ultimate-TicTacToe
-Ultimate TicTacToe on PyQt5
-
-Yandex.Lyceum project
-=======
 # Ultimate TicTacToe
 
 [Ultimate TicTacToe](https://en.wikipedia.org/wiki/Ultimate_tic-tac-toe) on PyQt5
@@ -46,4 +40,3 @@ Run application with command:
 ```bash
 python src/app.py
 ```
->>>>>>> dev
