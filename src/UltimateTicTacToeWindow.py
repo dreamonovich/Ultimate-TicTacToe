@@ -106,8 +106,6 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def keyPressEvent(self, event):
         press_list = [6, 7, 8, 3, 4, 5, 0, 1, 2]
         if event.key() >= Qt.Key_1 and event.key() <= Qt.Key_9:
-            # print(self.global_field, event.key() - 49)
-            print(self.current_global_field)
             field = self.findChild(QtCore.QObject, f"global_field_{0 if self.current_global_field == -1 else self.current_global_field}_local_field_{press_list[event.key() - 49]}")
             field.click()
 
