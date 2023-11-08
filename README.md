@@ -28,9 +28,17 @@ cd Ultimate-TicTacToe
 python -m venv venv
 ```
 5. Activate it:
+   
+- Windows:
 
 ```bash
 venv\Scripts\activate
+```
+
+- Linux/macOS:
+
+```bash
+source venv/bin/activate
 ```
 
 6. Install dependencies:
