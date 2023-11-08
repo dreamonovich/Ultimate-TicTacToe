@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_Слой_1" data-name="Слой 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d1d1b;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="34" width="2" height="50" rx=".78" ry=".78"/>
+  <rect class="cls-1" x="14" width="2" height="50" rx=".78" ry=".78"/>
+  <rect class="cls-1" x="24" y="-10" width="2" height="50" rx=".78" ry=".78" transform="translate(10 40) rotate(-90)"/>
+  <rect class="cls-1" x="24" y="10" width="2" height="50" rx=".78" ry=".78" transform="translate(-10 60) rotate(-90)"/>
+</svg>
