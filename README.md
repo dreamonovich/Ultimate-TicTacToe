@@ -8,7 +8,7 @@ Yandex.Lyceum project
 
 ## Installation
 
-1. You should have [Python 3.6+](https://www.python.org/downloads/) and [Git](https://git-scm.com/downloads) installed on your local machine.
+1. You should have [Python 3.6+](https://www.python.org/downloads/), [Git](https://git-scm.com/downloads) and [Manrope](https://fonts.google.com/specimen/Manrope)(optional) installed on your local machine.
 
 2. Clone repository:
 
