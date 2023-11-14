@@ -1,5 +1,5 @@
-from PyQt5 import QtCore
 from PyQt5.QtCore import QUrl
+from svghelper import set_color
 from SettingsWindow import *
 from ui.ui_MainMenu import Ui_MainMenuWindow
 

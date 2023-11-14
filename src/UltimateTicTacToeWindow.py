@@ -10,14 +10,14 @@ ZERO_LETTER = "0"
 BOARD_HEIGHT = 3
 BOARD_LENGTH = 3
 WIN_COMBINATIONS = (
-    (0, 1, 2),
-    (3, 4, 5),
-    (6, 7, 8),
-    (0, 3, 6),
-    (1, 4, 7),
-    (2, 5, 8),
-    (0, 4, 8),
-    (2, 4, 6),
+    {0, 1, 2},
+    {3, 4, 5},
+    {6, 7, 8},
+    {0, 3, 6},
+    {1, 4, 7},
+    {2, 5, 8},
+    {0, 4, 8},
+    {2, 4, 6},
 )
 
 class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
@@ -26,6 +26,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         super().__init__()
         self.setupUi(self)
         self.current_global_field = 0
+        self.numpad_control = False
         self.setup_click_handler()
         self.new_game()
 
@@ -36,6 +37,9 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
                 field.setText(self.ultimate_tictactoe_swapper(self.game_pos[global_field_index][local_field_index]))
                 field.change_theme(themes_config.current_theme)
+
+    def toggle_numpad_control(self):
+        self.numpad_control = not self.numpad_control
 
     def change_theme(self, theme):
 
@@ -104,10 +108,11 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.draw_board()
 
     def keyPressEvent(self, event):
-        press_list = [6, 7, 8, 3, 4, 5, 0, 1, 2]
-        if event.key() >= Qt.Key_1 and event.key() <= Qt.Key_9:
-            field = self.findChild(QtCore.QObject, f"global_field_{0 if self.current_global_field == -1 else self.current_global_field}_local_field_{press_list[event.key() - 49]}")
-            field.click()
+        if self.numpad_control:
+            press_list = [6, 7, 8, 3, 4, 5, 0, 1, 2]
+            if event.key() >= Qt.Key_1 and event.key() <= Qt.Key_9:
+                field = self.findChild(QtCore.QObject, f"global_field_{0 if self.current_global_field == -1 else self.current_global_field}_local_field_{press_list[event.key() - 49]}")
+                field.click()
 
 
 
@@ -165,21 +170,21 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
     def local_win(self):
 
-        if tuple(self.local_zero_pos[self.global_field]) in WIN_COMBINATIONS:
+        if set(self.local_zero_pos[self.global_field]) in WIN_COMBINATIONS:
             return (True, ZERO_LETTER)
 
-        elif tuple(self.local_first_pos[self.global_field]) in WIN_COMBINATIONS:
+        elif set(self.local_first_pos[self.global_field]) in WIN_COMBINATIONS:
             return (True, FIRST_LETTER)
 
         else:
             return (False, None)
 
     def global_win(self):
-        if tuple(self.global_first_pos) in WIN_COMBINATIONS:
+        if set(self.global_first_pos) in WIN_COMBINATIONS:
             return (True, FIRST_LETTER)
 
         elif tuple(self.global_zero_pos) in WIN_COMBINATIONS:
-            return (True, ZERO_LETTER)
+            set(True, ZERO_LETTER)
 
         else:
             return (False, None)

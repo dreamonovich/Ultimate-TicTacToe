@@ -12,6 +12,7 @@ class UltimateMainWindow(QMainWindow):
         self.MainMenuInterface.settings_window.theme1.clicked.connect(self.theme_clicked)
         self.MainMenuInterface.settings_window.theme2.clicked.connect(self.theme_clicked)
         self.MainMenuInterface.settings_window.theme3.clicked.connect(self.theme_clicked)
+        self.MainMenuInterface.settings_window.numpad_toggle.clicked.connect(self.UltimateTicTacToeInterface.toggle_numpad_control)
 
     def theme_clicked(self):
         themes_config.current_theme = self.sender().objectName()
