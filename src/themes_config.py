@@ -21,7 +21,15 @@ themes = {
         "text_color": "#f2f0d8",
         "button_color": "#ff5a4f",
         "edge_color": "#f26b6b"
+    },
+    
+    "debug_theme": {
+        "hover_color": "gray",
+        "background_color": "white",
+        "text_color": "black",
+        "button_color": "gray",
+        "edge_color": "gray"
     }
 }
 
-current_theme = "theme3"
+current_theme = "theme1"
