@@ -2,3 +2,5 @@
 PyQt5-Qt5==5.15.2
 PyQt5-sip==12.13.0
 svghelper==0.0.6
+qtwidgets==1.1
+qtpy==2.4.1
