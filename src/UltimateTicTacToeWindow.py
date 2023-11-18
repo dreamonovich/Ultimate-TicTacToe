@@ -2,9 +2,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore import Qt
 from svghelper import set_color
+from db_handler import *
 import themes_config
 from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
 from WinWindow import WinWindow
+from UploadGame import UploadGame
 
 FIRST_LETTER = "X"
 ZERO_LETTER = "0"
@@ -28,8 +30,8 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.setupUi(self)
         self.current_global_field = 0
         self.numpad_control = False
-        self.make_win_widget()
-        self.setup_click_handler()
+        self.make_widgets()
+
 
         self.layout = QtWidgets.QGridLayout()
         self.layout.setSpacing(15)
@@ -38,8 +40,11 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
         self.new_game()
 
-    def make_win_widget(self):
+        self.setup_click_handler()
+
+    def make_widgets(self):
         self.win_window = WinWindow()
+        self.upload_game_window = UploadGame()
 
     def draw_board(self):
         for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
@@ -84,6 +89,16 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         btn_reset_icon.addFile(u"ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_reset.setIcon(btn_reset_icon)
 
+        set_color(u"ui/icons/upload_icon.svg", u"ui/icons/upload_icon.svg", themes_config.themes[theme]['text_color'])
+        btn_upload_icon = QtGui.QIcon()
+        btn_upload_icon.addFile(u"ui/icons/upload_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_upload.setIcon(btn_upload_icon)
+
+        set_color(u"ui/icons/save_icon.svg", u"ui/icons/save_icon.svg", themes_config.themes[theme]['text_color'])
+        btn_save_icon = QtGui.QIcon()
+        btn_save_icon.addFile(u"ui/icons/save_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.btn_save.setIcon(btn_save_icon)
+
         self.btn_back.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
         self.btn_back.change_theme(theme)
 
@@ -93,6 +108,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.build_label(theme)
 
         self.win_window.change_theme(theme)
+        self.upload_game_window.change_theme(theme)
 
         self.draw_board()
 
@@ -128,38 +144,40 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                         f"background-color: {themes_config.themes[theme][f'win_{label_text}_color']}; border-radius: 10px")
                     inner_label.setAttribute(Qt.WA_TransparentForMouseEvents)
                     self.main_layout.addWidget(inner_label, row, col)
-                    print(inner_label.objectName())
 
     def reset_labels(self):
         for i in range(self.main_layout.count()):
             if self.main_layout.itemAt(i).widget().__class__.__name__ == "QLabel":
                 self.main_layout.itemAt(i).widget().graphicsEffect().setOpacity(0)
-        print(self.layout.count())
         for i in range(self.layout.count()):
             self.layout.itemAt(i).widget().graphicsEffect().setOpacity(0)
 
-    def new_game(self):
-        self.game_pos = [
-            [-1 for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
-            for _ in range(BOARD_HEIGHT * BOARD_LENGTH)
-        ]
+    def new_game(self, custom_game=False):
 
-        self.local_zero_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
-        self.local_first_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
+        if not custom_game:
+            self.game_pos = [
+                [-1 for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
+                for _ in range(BOARD_HEIGHT * BOARD_LENGTH)
+            ]
 
-        self.global_first_pos = []
-        self.global_zero_pos = []
+            self.local_zero_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
+            self.local_first_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
 
-        self.local_end = False
-        self.global_end = False
+            self.global_first_pos = []
+            self.global_zero_pos = []
 
-        self.current_global_field = -1
+            self.local_end = False
+            self.global_end = False
 
-        self.zero_turn = False
+            self.current_global_field = -1
 
-        self.local_ends = set()
+            self.zero_turn = False
 
-        self.any_field = False
+            self.local_ends = set()
+
+            self.local_field = 0
+
+            self.any_field = False
 
         self.label.setText(f"Ход {self.ultimate_tictactoe_swapper(self.zero_turn)}")
 
@@ -235,7 +253,6 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.current_outer_label.graphicsEffect().setOpacity(0)
         for i in range(self.layout.count()):
             if self.layout.itemAt(i).widget().objectName() == f"outer_label_{self.local_field}":
-                print(self.layout.itemAt(i).widget().objectName())
                 self.layout.itemAt(i).widget().graphicsEffect().setOpacity(0.2)
                 self.current_outer_label = self.layout.itemAt(i).widget()
                 break
@@ -245,25 +262,68 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         for i in range(self.main_layout.count()):
             if self.main_layout.itemAt(i).widget().__class__.__name__ == "QLabel":
                 if self.main_layout.itemAt(i).widget().objectName() == f"inner_label_{winner_color}_{self.global_field}":
-                    print(self.main_layout.itemAt(i).widget().objectName())
                     self.main_layout.itemAt(i).widget().graphicsEffect().setOpacity(0.2)
                     break
 
     def btn_reset_handler(self):
+        self.recolor_outer_label()
         self.new_game()
+
+
 
     def setup_click_handler(self):
 
+        self.any_field = False
         for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
             for local_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
                 field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
                 field.clicked.connect(self.field_click_handler)
-
         self.win_window.save_game_btn.clicked.connect(self.save_game)
         self.btn_reset.clicked.connect(self.btn_reset_handler)
+        self.btn_upload.clicked.connect(self.show_upload_game)
+        self.upload_game_window.upload_btn.clicked.connect(self.upload_game)
+        self.btn_save.clicked.connect(self.save_game)
+
+    def show_upload_game(self):
+        self.upload_game_window.fill_data()
+        self.upload_game_window.show()
+
+    def upload_game(self):
+
+        id = self.upload_game_window.table.currentRow()
+        print(id)
+        data = get_data(id)[0]
+
+        self.game_pos = data_formatter(data[1], "game_pos")
+
+        self.local_zero_pos = data_formatter(data[2], "local_pos")
+        self.local_first_pos = data_formatter(data[3], "local_pos")
+
+        self.global_first_pos = data_formatter(data[4], "global_pos")
+        self.global_zero_pos = data_formatter(data[5], "global_pos")
+
+        self.local_end = True if data[6] == "True" else False
+        self.global_end = True if data[7] == "True" else False
+
+        self.current_global_field = int(data[8])
+
+        self.zero_turn = True if data[9] == "True" else False
+
+        self.local_ends = data_formatter(data[10], "local_ends")
+
+        self.any_field = True if data[11] == "True" else False
+
+        self.current_outer_label = self.layout.itemAt(0).widget()
+
+        self.local_field = int(data[13])
+
+        self.new_game(custom_game=True)
 
     def save_game(self):
-        pass
+        info = (str(self.game_pos), str(self.local_zero_pos), str(self.local_first_pos), str(self.global_first_pos), str(self.global_zero_pos),
+                str(self.local_end), str(self.global_end), str(self.current_global_field), str(self.zero_turn), str(self.local_ends),
+                str(self.any_field), str(self.current_outer_label), str(self.local_field))
+        save_game(info)
 
     def local_win(self):
 
