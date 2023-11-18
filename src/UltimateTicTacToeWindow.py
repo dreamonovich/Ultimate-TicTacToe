@@ -105,6 +105,12 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.btn_reset.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
         self.btn_reset.change_theme(theme)
 
+        self.btn_save.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_save.change_theme(theme)
+
+        self.btn_upload.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_upload.change_theme(theme)
+
         self.build_label(theme)
 
         self.win_window.change_theme(theme)
