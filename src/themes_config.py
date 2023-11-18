@@ -4,7 +4,10 @@ themes = {
         "background_color": "#22223B",
         "text_color": "#9A8C98",
         "button_color": "#4e4e87",
-        "edge_color": "#2e2e50"
+        "edge_color": "#2e2e50",
+        "outer_color": "white",
+        "win_0_color": "red",
+        "win_1_color": "blue"
     },
 
     "theme2": {
@@ -12,7 +15,10 @@ themes = {
         "background_color": "#F2D974",
         "text_color": "#534E52",
         "button_color": "#fff67a",
-        "edge_color": "#e3cd72"
+        "edge_color": "#e3cd72",
+        "outer_color": "white",
+        "win_0_color": "red",
+        "win_1_color": "blue"
     },
 
     "theme3": {
@@ -20,7 +26,10 @@ themes = {
         "background_color": "#f24b4b",
         "text_color": "#f2f0d8",
         "button_color": "#ff5a4f",
-        "edge_color": "#f26b6b"
+        "edge_color": "#f26b6b",
+        "outer_color": "white",
+        "win_0_color": "red",
+        "win_1_color": "blue"
     },
     
     "debug_theme": {
@@ -28,7 +37,10 @@ themes = {
         "background_color": "white",
         "text_color": "black",
         "button_color": "gray",
-        "edge_color": "gray"
+        "edge_color": "gray",
+        "outer_color": "white",
+        "win_0_color": "red",
+        "win_1_color": "blue"
     }
 }
 

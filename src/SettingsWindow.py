@@ -16,7 +16,7 @@ class SettingsWindow(QMainWindow, Ui_SettingsWindow):
         self.numpad_toggle.setFixedSize(70,50)
         self.gridLayout.addWidget(self.numpad_toggle, 1, 1, QtCore.Qt.AlignRight)
 
-        self.setWindowIcon(QtGui.QIcon(u"src/ui/icons/settings_icon_static.svg"))
+        self.setWindowIcon(QtGui.QIcon(u"ui/icons/settings_icon_static.svg"))
 
     def change_theme(self, theme):
 
@@ -26,3 +26,11 @@ class SettingsWindow(QMainWindow, Ui_SettingsWindow):
 "    background-color: transparent;\n"
 "    border: none;\n"
 "}")
+        icon1 = QtGui.QIcon(QtGui.QPixmap("ui\\icons/theme1_icon.png"))
+        self.theme1.setIcon(icon1)
+
+        icon2 = QtGui.QIcon(QtGui.QPixmap("ui\\icons/theme2_icon.png"))
+        self.theme2.setIcon(icon2)
+
+        icon3 = QtGui.QIcon(QtGui.QPixmap("ui\\icons/theme3_icon.png"))
+        self.theme3.setIcon(icon3)

@@ -21,7 +21,7 @@ class UltimateMainWindow(QMainWindow):
     def initUI(self):
         self.resize(800, 800)
         self.setWindowTitle("UltimateTicTacToe")
-        window_icon = QtGui.QIcon('src/ui/icons/UltimateTicTacToe_icon.svg')
+        window_icon = QtGui.QIcon('ui/icons/UltimateTicTacToe_icon.svg')
         self.setWindowIcon(window_icon)
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)

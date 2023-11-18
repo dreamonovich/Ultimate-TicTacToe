@@ -157,16 +157,28 @@ QFrame[frameShape=&quot;5&quot;]
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="field_layout">
-      <item>
+     <layout class="QGridLayout" name="field_layout">
+      <item row="0" column="0">
        <layout class="QGridLayout" name="main_layout">
+        <property name="leftMargin">
+         <number>16</number>
+        </property>
+        <property name="topMargin">
+         <number>16</number>
+        </property>
+        <property name="rightMargin">
+         <number>16</number>
+        </property>
+        <property name="bottomMargin">
+         <number>16</number>
+        </property>
         <property name="spacing">
-         <number>15</number>
+         <number>16</number>
         </property>
         <item row="4" column="2">
          <layout class="QGridLayout" name="global_field_7">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="0" column="0">
            <widget class="Field" name="global_field_7_local_field_0">
@@ -608,7 +620,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="0" column="0">
          <layout class="QGridLayout" name="global_field_0">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="0" column="4">
            <widget class="Field" name="global_field_0_local_field_2">
@@ -1059,7 +1071,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="2" column="0">
          <layout class="QGridLayout" name="global_field_3">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="2" column="0">
            <widget class="Field" name="global_field_3_local_field_3">
@@ -1429,7 +1441,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="4" column="0">
          <layout class="QGridLayout" name="global_field_6">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="4" column="4">
            <widget class="Field" name="global_field_6_local_field_8">
@@ -1983,7 +1995,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="4" column="4">
          <layout class="QGridLayout" name="global_field_8">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="0" column="4">
            <widget class="Field" name="global_field_8_local_field_2">
@@ -2428,7 +2440,7 @@ QFrame[frameShape=&quot;5&quot;]
            <enum>QLayout::SetDefaultConstraint</enum>
           </property>
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="2" column="4">
            <widget class="Field" name="global_field_1_local_field_5">
@@ -2886,7 +2898,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="0" column="4">
          <layout class="QGridLayout" name="global_field_2">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="0" column="2">
            <widget class="Field" name="global_field_2_local_field_1">
@@ -3334,7 +3346,7 @@ QFrame[frameShape=&quot;5&quot;]
            <number>0</number>
           </property>
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="0" column="4">
            <widget class="Field" name="global_field_4_local_field_2">
@@ -3782,7 +3794,7 @@ QFrame[frameShape=&quot;5&quot;]
         <item row="2" column="4">
          <layout class="QGridLayout" name="global_field_5">
           <property name="spacing">
-           <number>15</number>
+           <number>16</number>
           </property>
           <item row="2" column="0">
            <widget class="Field" name="global_field_5_local_field_3">

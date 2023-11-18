@@ -22,14 +22,14 @@ class MainMenuWindow(QMainWindow, Ui_MainMenuWindow):
                             "}\n")
 
         self.btn_play.change_theme(theme)
-        set_color(u"src/ui/icons/github_icon.svg", u"src/ui/icons/github_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/github_icon.svg", u"ui/icons/github_icon.svg", themes_config.themes[theme]['text_color'])
         github_icon = QtGui.QIcon()
-        github_icon.addFile(u"src/ui/icons/github_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        github_icon.addFile(u"ui/icons/github_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.github_button.setIcon(github_icon)
 
-        set_color(u"src/ui/icons/settings_icon.svg", u"src/ui/icons/settings_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/settings_icon.svg", u"ui/icons/settings_icon.svg", themes_config.themes[theme]['text_color'])
         settings_icon = QtGui.QIcon()
-        settings_icon.addFile(u"src/ui/icons/settings_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        settings_icon.addFile(u"ui/icons/settings_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.settings_button.setIcon(settings_icon)
 
         self.settings_window.change_theme(theme)

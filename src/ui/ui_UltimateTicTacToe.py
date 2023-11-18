@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.\ui\ui_UltimateTicTacToe.ui'
+# Form implementation generated from reading ui file '.\src\ui\ui_UltimateTicTacToe.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -86,13 +86,38 @@ class Ui_UltimateTicTacToeWindow(object):
         self.btn_reset.setObjectName("btn_reset")
         self.menubar.addWidget(self.btn_reset, 0, QtCore.Qt.AlignRight)
         self.verticalLayout.addLayout(self.menubar)
-        self.field_layout = QtWidgets.QVBoxLayout()
+        self.field_layout = QtWidgets.QGridLayout()
         self.field_layout.setObjectName("field_layout")
         self.main_layout = QtWidgets.QGridLayout()
-        self.main_layout.setSpacing(15)
+        self.main_layout.setContentsMargins(16, 16, 16, 16)
+        self.main_layout.setSpacing(16)
         self.main_layout.setObjectName("main_layout")
+        # layout = QtWidgets.QGridLayout()
+        # layout.setSpacing(15)
+        # layout.setContentsMargins(QtCore.QMargins(8, 8, 8, 8))
+        # layout.setAlignment(QtCore.Qt.AlignCenter)
+        #
+        # for row in range(3):
+        #     for col in range(3):
+        #         outer_label = QtWidgets.QLabel()
+        #         opacity_effect = QtWidgets.QGraphicsOpacityEffect()
+        #         opacity_effect.setOpacity(0.01)
+        #         outer_label.setGraphicsEffect(opacity_effect)
+        #         layout.setObjectName(f"outer_label_{row}_{col}")
+        #         layout.addWidget(outer_label, row, col)
+        #
+        # for row in range(0, 3 + 2, 2):
+        #     for col in range(0, 3 + 2, 2):
+        #         inner_label = QtWidgets.QLabel()
+        #         opacity_effect = QtWidgets.QGraphicsOpacityEffect()
+        #         opacity_effect.setOpacity(0.05)
+        #         inner_label.setGraphicsEffect(opacity_effect)
+        #         inner_label.setObjectName(f"inner_label_{row}_{col}")
+        #         self.main_layout.addWidget(inner_label, row, col)
+        #
+        # self.field_layout.addLayout(layout, 0, 0)
         self.global_field_7 = QtWidgets.QGridLayout()
-        self.global_field_7.setSpacing(15)
+        self.global_field_7.setSpacing(16)
         self.global_field_7.setObjectName("global_field_7")
         self.global_field_7_local_field_0 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -261,7 +286,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_7.addWidget(self.line_100, 2, 1, 1, 1)
         self.main_layout.addLayout(self.global_field_7, 4, 2, 1, 1)
         self.global_field_0 = QtWidgets.QGridLayout()
-        self.global_field_0.setSpacing(15)
+        self.global_field_0.setSpacing(16)
         self.global_field_0.setObjectName("global_field_0")
         self.global_field_0_local_field_2 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -432,7 +457,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_0.addWidget(self.line_31, 4, 1, 1, 1)
         self.main_layout.addLayout(self.global_field_0, 0, 0, 1, 1)
         self.global_field_3 = QtWidgets.QGridLayout()
-        self.global_field_3.setSpacing(15)
+        self.global_field_3.setSpacing(16)
         self.global_field_3.setObjectName("global_field_3")
         self.global_field_3_local_field_3 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -589,7 +614,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_3.addWidget(self.line_23, 2, 3, 1, 1)
         self.main_layout.addLayout(self.global_field_3, 2, 0, 1, 1)
         self.global_field_6 = QtWidgets.QGridLayout()
-        self.global_field_6.setSpacing(15)
+        self.global_field_6.setSpacing(16)
         self.global_field_6.setObjectName("global_field_6")
         self.global_field_6_local_field_8 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -800,7 +825,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.line_9.setObjectName("line_9")
         self.main_layout.addWidget(self.line_9, 1, 2, 1, 1)
         self.global_field_8 = QtWidgets.QGridLayout()
-        self.global_field_8.setSpacing(15)
+        self.global_field_8.setSpacing(16)
         self.global_field_8.setObjectName("global_field_8")
         self.global_field_8_local_field_2 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -970,7 +995,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.main_layout.addLayout(self.global_field_8, 4, 4, 1, 1)
         self.global_field_1 = QtWidgets.QGridLayout()
         self.global_field_1.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.global_field_1.setSpacing(15)
+        self.global_field_1.setSpacing(16)
         self.global_field_1.setObjectName("global_field_1")
         self.global_field_1_local_field_5 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -1145,7 +1170,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.line_6.setObjectName("line_6")
         self.main_layout.addWidget(self.line_6, 2, 3, 1, 1)
         self.global_field_2 = QtWidgets.QGridLayout()
-        self.global_field_2.setSpacing(15)
+        self.global_field_2.setSpacing(16)
         self.global_field_2.setObjectName("global_field_2")
         self.global_field_2_local_field_1 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -1316,7 +1341,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_4 = QtWidgets.QGridLayout()
         self.global_field_4.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
         self.global_field_4.setContentsMargins(0, -1, -1, -1)
-        self.global_field_4.setSpacing(15)
+        self.global_field_4.setSpacing(16)
         self.global_field_4.setObjectName("global_field_4")
         self.global_field_4_local_field_2 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -1486,7 +1511,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_4.addWidget(self.line_66, 4, 1, 1, 1)
         self.main_layout.addLayout(self.global_field_4, 2, 2, 1, 1)
         self.global_field_5 = QtWidgets.QGridLayout()
-        self.global_field_5.setSpacing(15)
+        self.global_field_5.setSpacing(16)
         self.global_field_5.setObjectName("global_field_5")
         self.global_field_5_local_field_3 = Field(self.centralwidget)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -1678,7 +1703,7 @@ class Ui_UltimateTicTacToeWindow(object):
         self.line_13.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_13.setObjectName("line_13")
         self.main_layout.addWidget(self.line_13, 3, 4, 1, 1)
-        self.field_layout.addLayout(self.main_layout)
+        self.field_layout.addLayout(self.main_layout, 0, 0, 1, 1)
         self.verticalLayout.addLayout(self.field_layout)
         UltimateTicTacToeWindow.setCentralWidget(self.centralwidget)
 
