@@ -7,9 +7,8 @@ themes = {
         "edge_color": "#2e2e50",
         "outer_color": "white",
         "win_0_color": "red",
-        "win_1_color": "blue"
+        "win_1_color": "blue",
     },
-
     "theme2": {
         "hover_color": "#ffed7a",
         "background_color": "#F2D974",
@@ -18,9 +17,8 @@ themes = {
         "edge_color": "#e3cd72",
         "outer_color": "white",
         "win_0_color": "red",
-        "win_1_color": "blue"
+        "win_1_color": "blue",
     },
-
     "theme3": {
         "hover_color": "#bf3b3b",
         "background_color": "#f24b4b",
@@ -29,9 +27,8 @@ themes = {
         "edge_color": "#f26b6b",
         "outer_color": "white",
         "win_0_color": "red",
-        "win_1_color": "blue"
+        "win_1_color": "blue",
     },
-    
     "debug_theme": {
         "hover_color": "gray",
         "background_color": "white",
@@ -40,8 +37,8 @@ themes = {
         "edge_color": "gray",
         "outer_color": "white",
         "win_0_color": "red",
-        "win_1_color": "blue"
-    }
+        "win_1_color": "blue",
+    },
 }
 
 current_theme = "theme1"
@@ -58,5 +55,5 @@ WIN_COMBINATIONS = (
     {1, 4, 7},
     {2, 5, 8},
     {0, 4, 8},
-    {2, 4, 6}
+    {2, 4, 6},
 )

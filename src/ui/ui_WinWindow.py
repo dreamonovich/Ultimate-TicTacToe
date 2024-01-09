@@ -20,10 +20,14 @@ class Ui_MainWindow(object):
         MainWindow.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.centralwidget.sizePolicy().hasHeightForWidth()
+        )
         self.centralwidget.setSizePolicy(sizePolicy)
         self.centralwidget.setMinimumSize(QtCore.QSize(200, 90))
         self.centralwidget.setMaximumSize(QtCore.QSize(200, 89))
@@ -62,4 +66,6 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Игра окончена!"))
         self.winner_label.setText(_translate("MainWindow", "Победитель:"))
         self.save_game_btn.setText(_translate("MainWindow", "сохранить игру"))
+
+
 from CustomButtons import HoveringButton

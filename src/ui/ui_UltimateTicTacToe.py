@@ -15,26 +15,32 @@ class Ui_UltimateTicTacToeWindow(object):
     def setupUi(self, UltimateTicTacToeWindow):
         UltimateTicTacToeWindow.setObjectName("UltimateTicTacToeWindow")
         UltimateTicTacToeWindow.resize(800, 800)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(UltimateTicTacToeWindow.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            UltimateTicTacToeWindow.sizePolicy().hasHeightForWidth()
+        )
         UltimateTicTacToeWindow.setSizePolicy(sizePolicy)
         UltimateTicTacToeWindow.setMinimumSize(QtCore.QSize(800, 800))
         UltimateTicTacToeWindow.setMaximumSize(QtCore.QSize(16777215, 1234567))
-        UltimateTicTacToeWindow.setStyleSheet("    QWidget {\n"
-"    color: #9A8C98;\n"
-"    background-color: #22223B;\n"
-"    font-family: Rubik;\n"
-"    font-size: 16pt;\n"
-"}\n"
-"\n"
-"QFrame[frameShape=\"4\"],\n"
-"QFrame[frameShape=\"5\"]\n"
-"{\n"
-"    border: none;\n"
-"    background: gray;\n"
-"}")
+        UltimateTicTacToeWindow.setStyleSheet(
+            "    QWidget {\n"
+            "    color: #9A8C98;\n"
+            "    background-color: #22223B;\n"
+            "    font-family: Rubik;\n"
+            "    font-size: 16pt;\n"
+            "}\n"
+            "\n"
+            'QFrame[frameShape="4"],\n'
+            'QFrame[frameShape="5"]\n'
+            "{\n"
+            "    border: none;\n"
+            "    background: gray;\n"
+            "}"
+        )
         self.centralwidget = QtWidgets.QWidget(UltimateTicTacToeWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -42,7 +48,9 @@ class Ui_UltimateTicTacToeWindow(object):
         self.menubar = QtWidgets.QHBoxLayout()
         self.menubar.setObjectName("menubar")
         self.btn_back = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_back.sizePolicy().hasHeightForWidth())
@@ -52,13 +60,19 @@ class Ui_UltimateTicTacToeWindow(object):
         self.btn_back.setStyleSheet("border-radius: 25px")
         self.btn_back.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/icons/back_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap(":/icons/icons/back_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.btn_back.setIcon(icon)
         self.btn_back.setIconSize(QtCore.QSize(40, 40))
         self.btn_back.setObjectName("btn_back")
         self.menubar.addWidget(self.btn_back, 0, QtCore.Qt.AlignLeft)
         self.label = QtWidgets.QLabel(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
@@ -68,11 +82,15 @@ class Ui_UltimateTicTacToeWindow(object):
         self.label.setAutoFillBackground(False)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
-        self.menubar.addWidget(self.label, 0, QtCore.Qt.AlignHCenter|QtCore.Qt.AlignVCenter)
+        self.menubar.addWidget(
+            self.label, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter
+        )
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.btn_save = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
@@ -82,13 +100,19 @@ class Ui_UltimateTicTacToeWindow(object):
         self.btn_save.setStyleSheet("border-radius: 25px")
         self.btn_save.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\src\\ui\\icons/save_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap(".\\src\\ui\\icons/save_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.btn_save.setIcon(icon1)
         self.btn_save.setIconSize(QtCore.QSize(40, 40))
         self.btn_save.setObjectName("btn_save")
         self.horizontalLayout.addWidget(self.btn_save)
         self.btn_upload = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_upload.sizePolicy().hasHeightForWidth())
@@ -98,13 +122,19 @@ class Ui_UltimateTicTacToeWindow(object):
         self.btn_upload.setStyleSheet("border-radius: 25px")
         self.btn_upload.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\src\\ui\\icons/upload_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap(".\\src\\ui\\icons/upload_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.btn_upload.setIcon(icon2)
         self.btn_upload.setIconSize(QtCore.QSize(40, 40))
         self.btn_upload.setObjectName("btn_upload")
         self.horizontalLayout.addWidget(self.btn_upload, 0, QtCore.Qt.AlignRight)
         self.btn_reset = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_reset.sizePolicy().hasHeightForWidth())
@@ -114,7 +144,11 @@ class Ui_UltimateTicTacToeWindow(object):
         self.btn_reset.setStyleSheet("border-radius: 25px")
         self.btn_reset.setText("")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/icons/reset_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(
+            QtGui.QPixmap(":/icons/icons/reset_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.btn_reset.setIcon(icon3)
         self.btn_reset.setIconSize(QtCore.QSize(40, 40))
         self.btn_reset.setObjectName("btn_reset")
@@ -131,82 +165,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_7.setSpacing(16)
         self.global_field_7.setObjectName("global_field_7")
         self.global_field_7_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_0.setObjectName("global_field_7_local_field_0")
         self.global_field_7.addWidget(self.global_field_7_local_field_0, 0, 0, 1, 1)
         self.global_field_7_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_7.setObjectName("global_field_7_local_field_7")
         self.global_field_7.addWidget(self.global_field_7_local_field_7, 4, 2, 1, 1)
         self.global_field_7_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_4.setObjectName("global_field_7_local_field_4")
         self.global_field_7.addWidget(self.global_field_7_local_field_4, 2, 2, 1, 1)
         self.global_field_7_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_2.setObjectName("global_field_7_local_field_2")
         self.global_field_7.addWidget(self.global_field_7_local_field_2, 0, 4, 1, 1)
         self.global_field_7_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_6.setObjectName("global_field_7_local_field_6")
         self.global_field_7.addWidget(self.global_field_7_local_field_6, 4, 0, 1, 1)
         self.global_field_7_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_8.setObjectName("global_field_7_local_field_8")
         self.global_field_7.addWidget(self.global_field_7_local_field_8, 4, 4, 1, 1)
         self.global_field_7_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_1.setObjectName("global_field_7_local_field_1")
         self.global_field_7.addWidget(self.global_field_7_local_field_1, 0, 2, 1, 1)
         self.global_field_7_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_5.setObjectName("global_field_7_local_field_5")
         self.global_field_7.addWidget(self.global_field_7_local_field_5, 2, 4, 1, 1)
         self.global_field_7_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_7_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_7_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_7_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_7_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_7_local_field_3.setObjectName("global_field_7_local_field_3")
@@ -300,84 +370,120 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_0.setSpacing(16)
         self.global_field_0.setObjectName("global_field_0")
         self.global_field_0_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_2.setObjectName("global_field_0_local_field_2")
         self.global_field_0.addWidget(self.global_field_0_local_field_2, 0, 4, 1, 1)
         self.global_field_0_local_field_0 = Field(self.centralwidget)
         self.global_field_0_local_field_0.setEnabled(True)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_0.setIconSize(QtCore.QSize(40, 40))
         self.global_field_0_local_field_0.setObjectName("global_field_0_local_field_0")
         self.global_field_0.addWidget(self.global_field_0_local_field_0, 0, 0, 1, 1)
         self.global_field_0_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_1.setObjectName("global_field_0_local_field_1")
         self.global_field_0.addWidget(self.global_field_0_local_field_1, 0, 2, 1, 1)
         self.global_field_0_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_5.setObjectName("global_field_0_local_field_5")
         self.global_field_0.addWidget(self.global_field_0_local_field_5, 2, 4, 1, 1)
         self.global_field_0_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_6.setObjectName("global_field_0_local_field_6")
         self.global_field_0.addWidget(self.global_field_0_local_field_6, 4, 0, 1, 1)
         self.global_field_0_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_8.setObjectName("global_field_0_local_field_8")
         self.global_field_0.addWidget(self.global_field_0_local_field_8, 4, 4, 1, 1)
         self.global_field_0_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_4.setObjectName("global_field_0_local_field_4")
         self.global_field_0.addWidget(self.global_field_0_local_field_4, 2, 2, 1, 1)
         self.global_field_0_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_7.setObjectName("global_field_0_local_field_7")
         self.global_field_0.addWidget(self.global_field_0_local_field_7, 4, 2, 1, 1)
         self.global_field_0_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_0_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_0_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_0_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_0_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_0_local_field_3.setObjectName("global_field_0_local_field_3")
@@ -471,73 +577,105 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_3.setSpacing(16)
         self.global_field_3.setObjectName("global_field_3")
         self.global_field_3_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_3.setObjectName("global_field_3_local_field_3")
         self.global_field_3.addWidget(self.global_field_3_local_field_3, 2, 0, 1, 1)
         self.global_field_3_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_8.setObjectName("global_field_3_local_field_8")
         self.global_field_3.addWidget(self.global_field_3_local_field_8, 4, 4, 1, 1)
         self.global_field_3_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_5.setObjectName("global_field_3_local_field_5")
         self.global_field_3.addWidget(self.global_field_3_local_field_5, 2, 4, 1, 1)
         self.global_field_3_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_7.setObjectName("global_field_3_local_field_7")
         self.global_field_3.addWidget(self.global_field_3_local_field_7, 4, 2, 1, 1)
         self.global_field_3_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_6.setObjectName("global_field_3_local_field_6")
         self.global_field_3.addWidget(self.global_field_3_local_field_6, 4, 0, 1, 1)
         self.global_field_3_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_0.setObjectName("global_field_3_local_field_0")
         self.global_field_3.addWidget(self.global_field_3_local_field_0, 0, 0, 1, 1)
         self.global_field_3_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_1.setObjectName("global_field_3_local_field_1")
         self.global_field_3.addWidget(self.global_field_3_local_field_1, 0, 2, 1, 1)
         self.global_field_3_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_2.setObjectName("global_field_3_local_field_2")
@@ -591,10 +729,14 @@ class Ui_UltimateTicTacToeWindow(object):
         self.line_21.setObjectName("line_21")
         self.global_field_3.addWidget(self.line_21, 0, 1, 1, 1)
         self.global_field_3_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_3_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_3_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_3_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_3_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_3_local_field_4.setObjectName("global_field_3_local_field_4")
@@ -628,82 +770,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_6.setSpacing(16)
         self.global_field_6.setObjectName("global_field_6")
         self.global_field_6_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_8.setObjectName("global_field_6_local_field_8")
         self.global_field_6.addWidget(self.global_field_6_local_field_8, 4, 4, 1, 1)
         self.global_field_6_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_5.setObjectName("global_field_6_local_field_5")
         self.global_field_6.addWidget(self.global_field_6_local_field_5, 2, 4, 1, 1)
         self.global_field_6_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_0.setObjectName("global_field_6_local_field_0")
         self.global_field_6.addWidget(self.global_field_6_local_field_0, 0, 0, 1, 1)
         self.global_field_6_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_2.setObjectName("global_field_6_local_field_2")
         self.global_field_6.addWidget(self.global_field_6_local_field_2, 0, 4, 1, 1)
         self.global_field_6_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_1.setObjectName("global_field_6_local_field_1")
         self.global_field_6.addWidget(self.global_field_6_local_field_1, 0, 2, 1, 1)
         self.global_field_6_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_3.setObjectName("global_field_6_local_field_3")
         self.global_field_6.addWidget(self.global_field_6_local_field_3, 2, 0, 1, 1)
         self.global_field_6_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_4.setObjectName("global_field_6_local_field_4")
         self.global_field_6.addWidget(self.global_field_6_local_field_4, 2, 2, 1, 1)
         self.global_field_6_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_7.setObjectName("global_field_6_local_field_7")
         self.global_field_6.addWidget(self.global_field_6_local_field_7, 4, 2, 1, 1)
         self.global_field_6_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_6_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_6_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_6_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_6_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_6_local_field_6.setObjectName("global_field_6_local_field_6")
@@ -839,82 +1017,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_8.setSpacing(16)
         self.global_field_8.setObjectName("global_field_8")
         self.global_field_8_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_2.setObjectName("global_field_8_local_field_2")
         self.global_field_8.addWidget(self.global_field_8_local_field_2, 0, 4, 1, 1)
         self.global_field_8_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_1.setObjectName("global_field_8_local_field_1")
         self.global_field_8.addWidget(self.global_field_8_local_field_1, 0, 2, 1, 1)
         self.global_field_8_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_3.setObjectName("global_field_8_local_field_3")
         self.global_field_8.addWidget(self.global_field_8_local_field_3, 2, 0, 1, 1)
         self.global_field_8_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_6.setObjectName("global_field_8_local_field_6")
         self.global_field_8.addWidget(self.global_field_8_local_field_6, 4, 0, 1, 1)
         self.global_field_8_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_5.setObjectName("global_field_8_local_field_5")
         self.global_field_8.addWidget(self.global_field_8_local_field_5, 2, 4, 1, 1)
         self.global_field_8_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_4.setObjectName("global_field_8_local_field_4")
         self.global_field_8.addWidget(self.global_field_8_local_field_4, 2, 2, 1, 1)
         self.global_field_8_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_0.setObjectName("global_field_8_local_field_0")
         self.global_field_8.addWidget(self.global_field_8_local_field_0, 0, 0, 1, 1)
         self.global_field_8_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_8.setObjectName("global_field_8_local_field_8")
         self.global_field_8.addWidget(self.global_field_8_local_field_8, 4, 4, 1, 1)
         self.global_field_8_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_8_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_8_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_8_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_8_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_8_local_field_7.setObjectName("global_field_8_local_field_7")
@@ -1009,82 +1223,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_1.setSpacing(16)
         self.global_field_1.setObjectName("global_field_1")
         self.global_field_1_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_5.setObjectName("global_field_1_local_field_5")
         self.global_field_1.addWidget(self.global_field_1_local_field_5, 2, 4, 1, 1)
         self.global_field_1_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_6.setObjectName("global_field_1_local_field_6")
         self.global_field_1.addWidget(self.global_field_1_local_field_6, 4, 0, 1, 1)
         self.global_field_1_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_3.setObjectName("global_field_1_local_field_3")
         self.global_field_1.addWidget(self.global_field_1_local_field_3, 2, 0, 1, 1)
         self.global_field_1_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_7.setObjectName("global_field_1_local_field_7")
         self.global_field_1.addWidget(self.global_field_1_local_field_7, 4, 2, 1, 1)
         self.global_field_1_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_0.setObjectName("global_field_1_local_field_0")
         self.global_field_1.addWidget(self.global_field_1_local_field_0, 0, 0, 1, 1)
         self.global_field_1_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_8.setObjectName("global_field_1_local_field_8")
         self.global_field_1.addWidget(self.global_field_1_local_field_8, 4, 4, 1, 1)
         self.global_field_1_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_1.setObjectName("global_field_1_local_field_1")
         self.global_field_1.addWidget(self.global_field_1_local_field_1, 0, 2, 1, 1)
         self.global_field_1_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_4.setObjectName("global_field_1_local_field_4")
         self.global_field_1.addWidget(self.global_field_1_local_field_4, 2, 2, 1, 1)
         self.global_field_1_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_1_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_1_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_1_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_1_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_1_local_field_2.setObjectName("global_field_1_local_field_2")
@@ -1184,82 +1434,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_2.setSpacing(16)
         self.global_field_2.setObjectName("global_field_2")
         self.global_field_2_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_1.setObjectName("global_field_2_local_field_1")
         self.global_field_2.addWidget(self.global_field_2_local_field_1, 0, 2, 1, 1)
         self.global_field_2_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_2.setObjectName("global_field_2_local_field_2")
         self.global_field_2.addWidget(self.global_field_2_local_field_2, 0, 4, 1, 1)
         self.global_field_2_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_7.setObjectName("global_field_2_local_field_7")
         self.global_field_2.addWidget(self.global_field_2_local_field_7, 4, 2, 1, 1)
         self.global_field_2_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_3.setObjectName("global_field_2_local_field_3")
         self.global_field_2.addWidget(self.global_field_2_local_field_3, 2, 0, 1, 1)
         self.global_field_2_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_5.setObjectName("global_field_2_local_field_5")
         self.global_field_2.addWidget(self.global_field_2_local_field_5, 2, 4, 1, 1)
         self.global_field_2_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_0.setObjectName("global_field_2_local_field_0")
         self.global_field_2.addWidget(self.global_field_2_local_field_0, 0, 0, 1, 1)
         self.global_field_2_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_4.setObjectName("global_field_2_local_field_4")
         self.global_field_2.addWidget(self.global_field_2_local_field_4, 2, 2, 1, 1)
         self.global_field_2_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_8.setObjectName("global_field_2_local_field_8")
         self.global_field_2.addWidget(self.global_field_2_local_field_8, 4, 4, 1, 1)
         self.global_field_2_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_2_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_2_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_2_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_2_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_2_local_field_6.setObjectName("global_field_2_local_field_6")
@@ -1355,83 +1641,119 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_4.setSpacing(16)
         self.global_field_4.setObjectName("global_field_4")
         self.global_field_4_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_2.setObjectName("global_field_4_local_field_2")
         self.global_field_4.addWidget(self.global_field_4_local_field_2, 0, 4, 1, 1)
         self.global_field_4_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_7.setObjectName("global_field_4_local_field_7")
         self.global_field_4.addWidget(self.global_field_4_local_field_7, 4, 2, 1, 1)
         self.global_field_4_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_4.setObjectName("global_field_4_local_field_4")
         self.global_field_4.addWidget(self.global_field_4_local_field_4, 2, 2, 1, 1)
         self.global_field_4_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_5.setObjectName("global_field_4_local_field_5")
         self.global_field_4.addWidget(self.global_field_4_local_field_5, 2, 4, 1, 1)
         self.global_field_4_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_0.setObjectName("global_field_4_local_field_0")
         self.global_field_4.addWidget(self.global_field_4_local_field_0, 0, 0, 1, 1)
         self.global_field_4_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_8.setObjectName("global_field_4_local_field_8")
         self.global_field_4.addWidget(self.global_field_4_local_field_8, 4, 4, 1, 1)
         self.global_field_4_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_1.setObjectName("global_field_4_local_field_1")
         self.global_field_4.addWidget(self.global_field_4_local_field_1, 0, 2, 1, 1)
         self.global_field_4_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_6.setIconSize(QtCore.QSize(20, 20))
         self.global_field_4_local_field_6.setObjectName("global_field_4_local_field_6")
         self.global_field_4.addWidget(self.global_field_4_local_field_6, 4, 0, 1, 1)
         self.global_field_4_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_4_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_4_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_4_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_4_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_4_local_field_3.setObjectName("global_field_4_local_field_3")
@@ -1525,82 +1847,118 @@ class Ui_UltimateTicTacToeWindow(object):
         self.global_field_5.setSpacing(16)
         self.global_field_5.setObjectName("global_field_5")
         self.global_field_5_local_field_3 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_3.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_3.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_3.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_3.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_3.setObjectName("global_field_5_local_field_3")
         self.global_field_5.addWidget(self.global_field_5_local_field_3, 2, 0, 1, 1)
         self.global_field_5_local_field_8 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_8.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_8.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_8.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_8.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_8.setObjectName("global_field_5_local_field_8")
         self.global_field_5.addWidget(self.global_field_5_local_field_8, 4, 4, 1, 1)
         self.global_field_5_local_field_7 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_7.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_7.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_7.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_7.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_7.setObjectName("global_field_5_local_field_7")
         self.global_field_5.addWidget(self.global_field_5_local_field_7, 4, 2, 1, 1)
         self.global_field_5_local_field_1 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_1.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_1.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_1.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_1.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_1.setObjectName("global_field_5_local_field_1")
         self.global_field_5.addWidget(self.global_field_5_local_field_1, 0, 2, 1, 1)
         self.global_field_5_local_field_0 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_0.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_0.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_0.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_0.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_0.setObjectName("global_field_5_local_field_0")
         self.global_field_5.addWidget(self.global_field_5_local_field_0, 0, 0, 1, 1)
         self.global_field_5_local_field_4 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_4.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_4.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_4.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_4.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_4.setObjectName("global_field_5_local_field_4")
         self.global_field_5.addWidget(self.global_field_5_local_field_4, 2, 2, 1, 1)
         self.global_field_5_local_field_2 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_2.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_2.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_2.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_2.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_2.setObjectName("global_field_5_local_field_2")
         self.global_field_5.addWidget(self.global_field_5_local_field_2, 0, 4, 1, 1)
         self.global_field_5_local_field_5 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_5.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_5.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_5.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_5.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_5.setObjectName("global_field_5_local_field_5")
         self.global_field_5.addWidget(self.global_field_5_local_field_5, 2, 4, 1, 1)
         self.global_field_5_local_field_6 = Field(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.global_field_5_local_field_6.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.global_field_5_local_field_6.sizePolicy().hasHeightForWidth()
+        )
         self.global_field_5_local_field_6.setSizePolicy(sizePolicy)
         self.global_field_5_local_field_6.setMinimumSize(QtCore.QSize(58, 52))
         self.global_field_5_local_field_6.setObjectName("global_field_5_local_field_6")
@@ -1720,171 +2078,497 @@ class Ui_UltimateTicTacToeWindow(object):
 
         self.retranslateUi(UltimateTicTacToeWindow)
         QtCore.QMetaObject.connectSlotsByName(UltimateTicTacToeWindow)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_8, self.global_field_3_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_1, self.global_field_3_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_7, self.global_field_3_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_5, self.global_field_3_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_6, self.global_field_3_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_0, self.global_field_3_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_2, self.global_field_3_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_4, self.global_field_5_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_3, self.global_field_5_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_8, self.global_field_5_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_7, self.global_field_5_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_1, self.global_field_5_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_0, self.global_field_5_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_4, self.global_field_5_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_2, self.global_field_5_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_5, self.global_field_0_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_0, self.global_field_5_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_5_local_field_6, self.global_field_2_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_3, self.global_field_2_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_8, self.global_field_2_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_7, self.global_field_2_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_1, self.global_field_2_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_0, self.global_field_2_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_4, self.global_field_2_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_2, self.global_field_2_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_5, self.global_field_2_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_2_local_field_6, self.global_field_6_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_8, self.global_field_6_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_5, self.global_field_6_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_1, self.global_field_6_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_2, self.global_field_6_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_0, self.global_field_6_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_6, self.global_field_6_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_4, self.global_field_6_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_3, self.global_field_6_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_6_local_field_7, self.global_field_4_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_2, self.global_field_4_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_7, self.global_field_4_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_4, self.global_field_4_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_5, self.global_field_4_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_6, self.global_field_4_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_0, self.global_field_4_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_8, self.global_field_4_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_1, self.global_field_4_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_4_local_field_3, self.global_field_0_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_3, self.global_field_0_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_8, self.global_field_0_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_7, self.global_field_0_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_1, self.global_field_3_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_3_local_field_3, self.global_field_0_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_4, self.global_field_0_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_2, self.global_field_0_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_5, self.global_field_0_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_0_local_field_6, self.global_field_8_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_1, self.global_field_8_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_3, self.global_field_8_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_6, self.global_field_8_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_2, self.global_field_8_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_4, self.global_field_8_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_5, self.global_field_8_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_0, self.global_field_8_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_7, self.global_field_8_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_8_local_field_8, self.global_field_7_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_0, self.global_field_7_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_7, self.global_field_7_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_8, self.global_field_7_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_2, self.global_field_7_local_field_6)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_6, self.global_field_7_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_4, self.global_field_7_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_5, self.global_field_7_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_1, self.global_field_7_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_7_local_field_3, self.global_field_1_local_field_3)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_3, self.global_field_1_local_field_8)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_8, self.global_field_1_local_field_7)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_7, self.global_field_1_local_field_1)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_1, self.global_field_1_local_field_0)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_0, self.global_field_1_local_field_4)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_4, self.global_field_1_local_field_2)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_2, self.global_field_1_local_field_5)
-        UltimateTicTacToeWindow.setTabOrder(self.global_field_1_local_field_5, self.global_field_1_local_field_6)
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_8, self.global_field_3_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_1, self.global_field_3_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_7, self.global_field_3_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_5, self.global_field_3_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_6, self.global_field_3_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_0, self.global_field_3_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_2, self.global_field_3_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_4, self.global_field_5_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_3, self.global_field_5_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_8, self.global_field_5_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_7, self.global_field_5_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_1, self.global_field_5_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_0, self.global_field_5_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_4, self.global_field_5_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_2, self.global_field_5_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_5, self.global_field_0_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_0, self.global_field_5_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_5_local_field_6, self.global_field_2_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_3, self.global_field_2_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_8, self.global_field_2_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_7, self.global_field_2_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_1, self.global_field_2_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_0, self.global_field_2_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_4, self.global_field_2_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_2, self.global_field_2_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_5, self.global_field_2_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_2_local_field_6, self.global_field_6_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_8, self.global_field_6_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_5, self.global_field_6_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_1, self.global_field_6_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_2, self.global_field_6_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_0, self.global_field_6_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_6, self.global_field_6_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_4, self.global_field_6_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_3, self.global_field_6_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_6_local_field_7, self.global_field_4_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_2, self.global_field_4_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_7, self.global_field_4_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_4, self.global_field_4_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_5, self.global_field_4_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_6, self.global_field_4_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_0, self.global_field_4_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_8, self.global_field_4_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_1, self.global_field_4_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_4_local_field_3, self.global_field_0_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_3, self.global_field_0_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_8, self.global_field_0_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_7, self.global_field_0_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_1, self.global_field_3_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_3_local_field_3, self.global_field_0_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_4, self.global_field_0_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_2, self.global_field_0_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_5, self.global_field_0_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_0_local_field_6, self.global_field_8_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_1, self.global_field_8_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_3, self.global_field_8_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_6, self.global_field_8_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_2, self.global_field_8_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_4, self.global_field_8_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_5, self.global_field_8_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_0, self.global_field_8_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_7, self.global_field_8_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_8_local_field_8, self.global_field_7_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_0, self.global_field_7_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_7, self.global_field_7_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_8, self.global_field_7_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_2, self.global_field_7_local_field_6
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_6, self.global_field_7_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_4, self.global_field_7_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_5, self.global_field_7_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_1, self.global_field_7_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_7_local_field_3, self.global_field_1_local_field_3
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_3, self.global_field_1_local_field_8
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_8, self.global_field_1_local_field_7
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_7, self.global_field_1_local_field_1
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_1, self.global_field_1_local_field_0
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_0, self.global_field_1_local_field_4
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_4, self.global_field_1_local_field_2
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_2, self.global_field_1_local_field_5
+        )
+        UltimateTicTacToeWindow.setTabOrder(
+            self.global_field_1_local_field_5, self.global_field_1_local_field_6
+        )
 
     def retranslateUi(self, UltimateTicTacToeWindow):
         _translate = QtCore.QCoreApplication.translate
-        UltimateTicTacToeWindow.setWindowTitle(_translate("UltimateTicTacToeWindow", "MainWindow"))
+        UltimateTicTacToeWindow.setWindowTitle(
+            _translate("UltimateTicTacToeWindow", "MainWindow")
+        )
         self.label.setText(_translate("UltimateTicTacToeWindow", "Ход"))
-        self.global_field_7_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_7_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_0_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_3_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_6_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_8_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_1_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_2_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_4_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_3.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_8.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_7.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_1.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_0.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_4.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_2.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_5.setText(_translate("UltimateTicTacToeWindow", "-"))
-        self.global_field_5_local_field_6.setText(_translate("UltimateTicTacToeWindow", "-"))
+        self.global_field_7_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_7_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_0_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_3_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_6_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_8_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_1_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_2_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_4_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_3.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_8.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_7.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_1.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_0.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_4.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_2.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_5.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+        self.global_field_5_local_field_6.setText(
+            _translate("UltimateTicTacToeWindow", "-")
+        )
+
+
 from CustomButtons import Field
 from ui import resources_rc

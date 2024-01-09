@@ -2,6 +2,7 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 import config
 import functools
 
+
 class Field(QtWidgets.QPushButton):
     button_signal = QtCore.pyqtSignal(str)
 
@@ -18,20 +19,27 @@ class Field(QtWidgets.QPushButton):
         self.button_signal.emit("leaveEvent")
 
     def animate_button(self, button_signal):
-
         self.init_animation()
 
         if button_signal == "enterEvent":
-            self.setStyleSheet("Field {background-color: " + config.themes[config.current_theme]["hover_color"] + ";}")
-
+            self.setStyleSheet(
+                "Field {background-color: "
+                + config.themes[config.current_theme]["hover_color"]
+                + ";}"
+            )
 
         elif button_signal == "leaveEvent":
-            self.fade_animation.valueChanged.connect(functools.partial(self.helper_function, self))
+            self.fade_animation.valueChanged.connect(
+                functools.partial(self.helper_function, self)
+            )
             self.wait_animation.start(QtCore.QAbstractAnimation.DeleteWhenStopped)
-            self.wait_animation.finished.connect(lambda: self.fade_animation.start(QtCore.QAbstractAnimation.DeleteWhenStopped))
+            self.wait_animation.finished.connect(
+                lambda: self.fade_animation.start(
+                    QtCore.QAbstractAnimation.DeleteWhenStopped
+                )
+            )
 
     def init_animation(self):
-
         self.fade_animation = QtCore.QVariantAnimation(
             self,
             duration=200,
@@ -47,17 +55,17 @@ class Field(QtWidgets.QPushButton):
         )
 
     def change_theme(self, theme):
-
         self.hover_color = QtGui.QColor(config.themes[theme]["hover_color"])
         self.end_color = QtGui.QColor(config.themes[theme]["background_color"])
-        self.setStyleSheet(f"background-color: {config.themes[theme]['background_color']};")
-
+        self.setStyleSheet(
+            f"background-color: {config.themes[theme]['background_color']};"
+        )
 
     def helper_function(self, widget, color):
         widget.setStyleSheet("background-color: {}".format(color.name()))
 
-class HoveringButton(Field):
 
+class HoveringButton(Field):
     def __init__(self, parent=None):
         super(HoveringButton, self).__init__(parent)
 
@@ -65,4 +73,3 @@ class HoveringButton(Field):
         self.hover_color = QtGui.QColor(config.themes[theme]["hover_color"])
         self.end_color = QtGui.QColor(config.themes[theme]["button_color"])
         self.setStyleSheet(f"background-color: {config.themes[theme]['button_color']};")
-

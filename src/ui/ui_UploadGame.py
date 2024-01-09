@@ -27,7 +27,9 @@ class Ui_uploadgame(object):
         self.table.setRowCount(0)
         self.verticalLayout.addWidget(self.table)
         self.upload_btn = HoveringButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.upload_btn.sizePolicy().hasHeightForWidth())
@@ -44,4 +46,6 @@ class Ui_uploadgame(object):
         _translate = QtCore.QCoreApplication.translate
         uploadgame.setWindowTitle(_translate("uploadgame", "Загрузить игру"))
         self.upload_btn.setText(_translate("uploadgame", "Загрузить"))
+
+
 from CustomButtons import HoveringButton

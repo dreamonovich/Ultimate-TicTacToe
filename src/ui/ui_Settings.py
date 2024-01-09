@@ -15,7 +15,9 @@ class Ui_SettingsWindow(object):
     def setupUi(self, SettingsWindow):
         SettingsWindow.setObjectName("SettingsWindow")
         SettingsWindow.resize(350, 450)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(SettingsWindow.sizePolicy().hasHeightForWidth())
@@ -47,7 +49,9 @@ class Ui_SettingsWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.theme2 = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.theme2.sizePolicy().hasHeightForWidth())
@@ -56,13 +60,19 @@ class Ui_SettingsWindow(object):
         self.theme2.setMaximumSize(QtCore.QSize(50, 50))
         self.theme2.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\src\\ui\\icons/theme2_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap(".\\src\\ui\\icons/theme2_icon.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.theme2.setIcon(icon)
         self.theme2.setIconSize(QtCore.QSize(30, 30))
         self.theme2.setObjectName("theme2")
         self.horizontalLayout.addWidget(self.theme2)
         self.theme3 = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.theme3.sizePolicy().hasHeightForWidth())
@@ -71,13 +81,19 @@ class Ui_SettingsWindow(object):
         self.theme3.setMaximumSize(QtCore.QSize(50, 50))
         self.theme3.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\src\\ui\\icons/theme3_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap(".\\src\\ui\\icons/theme3_icon.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.theme3.setIcon(icon1)
         self.theme3.setIconSize(QtCore.QSize(30, 30))
         self.theme3.setObjectName("theme3")
         self.horizontalLayout.addWidget(self.theme3)
         self.theme1 = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.theme1.sizePolicy().hasHeightForWidth())
@@ -86,7 +102,11 @@ class Ui_SettingsWindow(object):
         self.theme1.setMaximumSize(QtCore.QSize(50, 50))
         self.theme1.setText("")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(".\\src\\ui\\icons/theme1_icon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(
+            QtGui.QPixmap(".\\src\\ui\\icons/theme1_icon.png"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.theme1.setIcon(icon2)
         self.theme1.setIconSize(QtCore.QSize(30, 30))
         self.theme1.setObjectName("theme1")
@@ -100,7 +120,9 @@ class Ui_SettingsWindow(object):
         self.label_theme_2.setObjectName("label_theme_2")
         self.gridLayout.addWidget(self.label_theme_2, 1, 0, 1, 1)
         self.verticalLayout.addLayout(self.gridLayout)
-        spacerItem = QtWidgets.QSpacerItem(20, 327, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 327, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
+        )
         self.verticalLayout.addItem(spacerItem)
         SettingsWindow.setCentralWidget(self.centralwidget)
 

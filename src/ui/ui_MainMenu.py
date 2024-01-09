@@ -15,7 +15,9 @@ class Ui_MainMenuWindow(object):
     def setupUi(self, MainMenuWindow):
         MainMenuWindow.setObjectName("MainMenuWindow")
         MainMenuWindow.resize(800, 800)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainMenuWindow.sizePolicy().hasHeightForWidth())
@@ -26,7 +28,9 @@ class Ui_MainMenuWindow(object):
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Minimum
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
@@ -38,13 +42,17 @@ class Ui_MainMenuWindow(object):
         font.setItalic(False)
         font.setWeight(50)
         self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignBottom|QtCore.Qt.AlignHCenter)
+        self.label.setAlignment(QtCore.Qt.AlignBottom | QtCore.Qt.AlignHCenter)
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
-        spacerItem = QtWidgets.QSpacerItem(20, 30, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        spacerItem = QtWidgets.QSpacerItem(
+            20, 30, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed
+        )
         self.verticalLayout.addItem(spacerItem)
         self.btn_play = HoveringButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btn_play.sizePolicy().hasHeightForWidth())
@@ -60,42 +68,62 @@ class Ui_MainMenuWindow(object):
         self.bottom_buttons = QtWidgets.QHBoxLayout()
         self.bottom_buttons.setObjectName("bottom_buttons")
         self.github_button = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.github_button.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.github_button.sizePolicy().hasHeightForWidth()
+        )
         self.github_button.setSizePolicy(sizePolicy)
         self.github_button.setMinimumSize(QtCore.QSize(50, 50))
         self.github_button.setMaximumSize(QtCore.QSize(50, 50))
         font = QtGui.QFont()
         font.setKerning(True)
         self.github_button.setFont(font)
-        self.github_button.setStyleSheet("    background-color: transparent;\n"
-"    border: none;")
+        self.github_button.setStyleSheet(
+            "    background-color: transparent;\n" "    border: none;"
+        )
         self.github_button.setText("")
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(".\\ui\\icons/github_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(
+            QtGui.QPixmap(".\\ui\\icons/github_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.github_button.setIcon(icon)
         self.github_button.setIconSize(QtCore.QSize(40, 40))
         self.github_button.setObjectName("github_button")
         self.bottom_buttons.addWidget(self.github_button, 0, QtCore.Qt.AlignBottom)
         self.settings_button = QtWidgets.QPushButton(self.centralwidget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy = QtWidgets.QSizePolicy(
+            QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed
+        )
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.settings_button.sizePolicy().hasHeightForWidth())
+        sizePolicy.setHeightForWidth(
+            self.settings_button.sizePolicy().hasHeightForWidth()
+        )
         self.settings_button.setSizePolicy(sizePolicy)
         self.settings_button.setMinimumSize(QtCore.QSize(50, 50))
         self.settings_button.setMaximumSize(QtCore.QSize(50, 50))
-        self.settings_button.setStyleSheet("    background-color: transparent;\n"
-"    border: none;")
+        self.settings_button.setStyleSheet(
+            "    background-color: transparent;\n" "    border: none;"
+        )
         self.settings_button.setText("")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(".\\ui\\icons/settings_icon.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(
+            QtGui.QPixmap(".\\ui\\icons/settings_icon.svg"),
+            QtGui.QIcon.Normal,
+            QtGui.QIcon.Off,
+        )
         self.settings_button.setIcon(icon1)
         self.settings_button.setIconSize(QtCore.QSize(40, 40))
         self.settings_button.setObjectName("settings_button")
-        self.bottom_buttons.addWidget(self.settings_button, 0, QtCore.Qt.AlignRight|QtCore.Qt.AlignBottom)
+        self.bottom_buttons.addWidget(
+            self.settings_button, 0, QtCore.Qt.AlignRight | QtCore.Qt.AlignBottom
+        )
         self.verticalLayout.addLayout(self.bottom_buttons)
         MainMenuWindow.setCentralWidget(self.centralwidget)
 
@@ -105,8 +133,11 @@ class Ui_MainMenuWindow(object):
     def retranslateUi(self, MainMenuWindow):
         _translate = QtCore.QCoreApplication.translate
         MainMenuWindow.setWindowTitle(_translate("MainMenuWindow", "MainWindow"))
-        self.label.setText(_translate("MainMenuWindow", "Ultimate\n"
-"TicTacToe"))
+        self.label.setText(_translate("MainMenuWindow", "Ultimate\n" "TicTacToe"))
         self.btn_play.setText(_translate("MainMenuWindow", "play"))
-        self.github_button.setToolTip(_translate("MainMenuWindow", "Страница проекта на GitHub"))
+        self.github_button.setToolTip(
+            _translate("MainMenuWindow", "Страница проекта на GitHub")
+        )
+
+
 from CustomButtons import HoveringButton

@@ -2,7 +2,8 @@ import sys
 from PyQt5.QtWidgets import QApplication
 from StackWindow import StackWindow
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    # init main window
     app = QApplication(sys.argv)
     ex = StackWindow()
     ex.resize(800, 800)
