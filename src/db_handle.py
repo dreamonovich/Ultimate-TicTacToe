@@ -1,5 +1,3 @@
-
-# Импорт библиотеки
 import sqlite3
 
 def save_game(info):
@@ -18,7 +16,7 @@ def get_data(id):
     con.close()
     return result
 
-def data_formatter(data, change_to):
+def format_data(data, change_to):
     if change_to in ("game_pos", "local_pos"):
         res = data[2:-2].split('], [')
         new_data = []

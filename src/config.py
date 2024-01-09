@@ -45,3 +45,18 @@ themes = {
 }
 
 current_theme = "theme1"
+
+FIRST_LETTER = "X"
+ZERO_LETTER = "0"
+BOARD_HEIGHT = 3
+BOARD_LENGTH = 3
+WIN_COMBINATIONS = (
+    {0, 1, 2},
+    {3, 4, 5},
+    {6, 7, 8},
+    {0, 3, 6},
+    {1, 4, 7},
+    {2, 5, 8},
+    {0, 4, 8},
+    {2, 4, 6}
+)

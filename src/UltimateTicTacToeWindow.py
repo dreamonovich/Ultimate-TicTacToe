@@ -2,26 +2,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5.QtCore import Qt
 from svghelper import set_color
-from db_handler import *
-import themes_config
+from db_handle import *
+import config
 from ui.ui_UltimateTicTacToe import Ui_UltimateTicTacToeWindow
 from WinWindow import WinWindow
 from UploadGame import UploadGame
-
-FIRST_LETTER = "X"
-ZERO_LETTER = "0"
-BOARD_HEIGHT = 3
-BOARD_LENGTH = 3
-WIN_COMBINATIONS = (
-    {0, 1, 2},
-    {3, 4, 5},
-    {6, 7, 8},
-    {0, 3, 6},
-    {1, 4, 7},
-    {2, 5, 8},
-    {0, 4, 8},
-    {2, 4, 6}
-)
 
 class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
@@ -47,12 +32,12 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.upload_game_window = UploadGame()
 
     def draw_board(self):
-        for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
-            for local_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+        for global_field_index in range(config.BOARD_HEIGHT * config.BOARD_LENGTH):
+            for local_field_index in range(config.BOARD_HEIGHT * config.BOARD_LENGTH):
                 field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
 
                 field.setText(self.ultimate_tictactoe_swapper(self.game_pos[global_field_index][local_field_index]))
-                field.change_theme(themes_config.current_theme)
+                field.change_theme(config.current_theme)
 
     def toggle_numpad_control(self):
         self.numpad_control = not self.numpad_control
@@ -60,8 +45,8 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def change_theme(self, theme):
 
         self.setStyleSheet("QWidget {\n"
-                            f"    color: {themes_config.themes[theme]['text_color']};\n"
-                            f"    background-color: {themes_config.themes[theme]['background_color']};\n"
+                            f"    color: {config.themes[theme]['text_color']};\n"
+                            f"    background-color: {config.themes[theme]['background_color']};\n"
                             "    font-family: Rubik;\n"
                             "    font-size: 16pt;\n"
                             "}"
@@ -70,7 +55,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                             "QFrame[frameShape=\"5\"]\n"
                             "{\n"
                             "    border: none;\n"
-                            f"   background: {themes_config.themes[theme]['edge_color']};\n"
+                            f"   background: {config.themes[theme]['edge_color']};\n"
                             "}"
                             "QPushButton {\n"
                             "    background-color: transparent;\n"
@@ -79,36 +64,36 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
                             "}\n"
                             )
 
-        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/back_icon.svg", u"ui/icons/back_icon.svg", config.themes[theme]['text_color'])
         btn_back_icon = QtGui.QIcon()
         btn_back_icon.addFile(u"ui/icons/back_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_back.setIcon(btn_back_icon)
 
-        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/reset_icon.svg", u"ui/icons/reset_icon.svg", config.themes[theme]['text_color'])
         btn_reset_icon = QtGui.QIcon()
         btn_reset_icon.addFile(u"ui/icons/reset_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_reset.setIcon(btn_reset_icon)
 
-        set_color(u"ui/icons/upload_icon.svg", u"ui/icons/upload_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/upload_icon.svg", u"ui/icons/upload_icon.svg", config.themes[theme]['text_color'])
         btn_upload_icon = QtGui.QIcon()
         btn_upload_icon.addFile(u"ui/icons/upload_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_upload.setIcon(btn_upload_icon)
 
-        set_color(u"ui/icons/save_icon.svg", u"ui/icons/save_icon.svg", themes_config.themes[theme]['text_color'])
+        set_color(u"ui/icons/save_icon.svg", u"ui/icons/save_icon.svg", config.themes[theme]['text_color'])
         btn_save_icon = QtGui.QIcon()
         btn_save_icon.addFile(u"ui/icons/save_icon.svg", QtCore.QSize(), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btn_save.setIcon(btn_save_icon)
 
-        self.btn_back.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_back.setStyleSheet(f"background-color: {config.themes[theme]['background_color']};")
         self.btn_back.change_theme(theme)
 
-        self.btn_reset.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_reset.setStyleSheet(f"background-color: {config.themes[theme]['background_color']};")
         self.btn_reset.change_theme(theme)
 
-        self.btn_save.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_save.setStyleSheet(f"background-color: {config.themes[theme]['background_color']};")
         self.btn_save.change_theme(theme)
 
-        self.btn_upload.setStyleSheet(f"background-color: {themes_config.themes[theme]['background_color']};")
+        self.btn_upload.setStyleSheet(f"background-color: {config.themes[theme]['background_color']};")
         self.btn_upload.change_theme(theme)
 
         self.build_label(theme)
@@ -119,16 +104,16 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.draw_board()
 
     def build_label(self, theme):
-        for row in range(BOARD_HEIGHT):
-            for col in range(BOARD_LENGTH):
-                field_index = int(row * BOARD_LENGTH + col)
+        for row in range(config.BOARD_HEIGHT):
+            for col in range(config.BOARD_LENGTH):
+                field_index = int(row * config.BOARD_LENGTH + col)
                 outer_label = QtWidgets.QLabel()
                 opacity_effect = QtWidgets.QGraphicsOpacityEffect()
                 outer_label.setGraphicsEffect(opacity_effect)
                 outer_label.graphicsEffect().setOpacity(0)
                 outer_label.setObjectName(f"outer_label_{field_index}")
                 outer_label.setStyleSheet(
-                    f"background-color: {themes_config.themes[theme]['outer_color']}; border-radius: 25px")
+                    f"background-color: {config.themes[theme]['outer_color']}; border-radius: 25px")
                 outer_label.setAttribute(Qt.WA_TransparentForMouseEvents)
                 self.layout.addWidget(outer_label, row, col)
 
@@ -137,17 +122,17 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         self.field_layout.addLayout(self.layout, 0, 0)
 
         for label_text in (0, 1):
-            for row in range(0, BOARD_HEIGHT + 2, 2):
-                for col in range(0, BOARD_LENGTH + 2, 2):
+            for row in range(0, config.BOARD_HEIGHT + 2, 2):
+                for col in range(0, config.BOARD_LENGTH + 2, 2):
 
-                    field_index = int((row / 2) * BOARD_LENGTH + (col / 2))
+                    field_index = int((row / 2) * config.BOARD_LENGTH + (col / 2))
                     inner_label = QtWidgets.QLabel()
                     opacity_effect = QtWidgets.QGraphicsOpacityEffect()
                     inner_label.setGraphicsEffect(opacity_effect)
                     inner_label.setObjectName(f"inner_label_{label_text}_{field_index}")
                     inner_label.graphicsEffect().setOpacity(0)
                     inner_label.setStyleSheet(
-                        f"background-color: {themes_config.themes[theme][f'win_{label_text}_color']}; border-radius: 10px")
+                        f"background-color: {config.themes[theme][f'win_{label_text}_color']}; border-radius: 10px")
                     inner_label.setAttribute(Qt.WA_TransparentForMouseEvents)
                     self.main_layout.addWidget(inner_label, row, col)
 
@@ -162,12 +147,12 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
         if not custom_game:
             self.game_pos = [
-                [-1 for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
-                for _ in range(BOARD_HEIGHT * BOARD_LENGTH)
+                [-1 for _ in range(config.BOARD_HEIGHT * config.BOARD_LENGTH)]
+                for _ in range(config.BOARD_HEIGHT * config.BOARD_LENGTH)
             ]
 
-            self.local_zero_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
-            self.local_first_pos = [[] for _ in range(BOARD_HEIGHT * BOARD_LENGTH)]
+            self.local_zero_pos = [[] for _ in range(config.BOARD_HEIGHT * config.BOARD_LENGTH)]
+            self.local_first_pos = [[] for _ in range(config.BOARD_HEIGHT * config.BOARD_LENGTH)]
 
             self.global_first_pos = []
             self.global_zero_pos = []
@@ -200,7 +185,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
 
 
-    def field_click_handler(self, *args, global_field="default", local_field="default"):
+    def field_click_handler(self, local_field="default"):
 
         if local_field == 'default':
             self.global_field, self.local_field = int(self.sender().objectName().split('_')[2]), int(
@@ -280,8 +265,8 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def setup_click_handler(self):
 
         self.any_field = False
-        for global_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
-            for local_field_index in range(BOARD_HEIGHT * BOARD_LENGTH):
+        for global_field_index in range(config.BOARD_HEIGHT * config.BOARD_LENGTH):
+            for local_field_index in range(config.BOARD_HEIGHT * config.BOARD_LENGTH):
                 field = self.findChild(QtCore.QObject, f"global_field_{global_field_index}_local_field_{local_field_index}")
                 field.clicked.connect(self.field_click_handler)
         self.win_window.save_game_btn.clicked.connect(self.save_game)
@@ -300,13 +285,13 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
         print(id)
         data = get_data(id)[0]
 
-        self.game_pos = data_formatter(data[1], "game_pos")
+        self.game_pos = format_data(data[1], "game_pos")
 
-        self.local_zero_pos = data_formatter(data[2], "local_pos")
-        self.local_first_pos = data_formatter(data[3], "local_pos")
+        self.local_zero_pos = format_data(data[2], "local_pos")
+        self.local_first_pos = format_data(data[3], "local_pos")
 
-        self.global_first_pos = data_formatter(data[4], "global_pos")
-        self.global_zero_pos = data_formatter(data[5], "global_pos")
+        self.global_first_pos = format_data(data[4], "global_pos")
+        self.global_zero_pos = format_data(data[5], "global_pos")
 
         self.local_end = True if data[6] == "True" else False
         self.global_end = True if data[7] == "True" else False
@@ -315,7 +300,7 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
         self.zero_turn = True if data[9] == "True" else False
 
-        self.local_ends = data_formatter(data[10], "local_ends")
+        self.local_ends = format_data(data[10], "local_ends")
 
         self.any_field = True if data[11] == "True" else False
 
@@ -334,22 +319,22 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def local_win(self):
 
         if self.global_field not in self.local_ends:
-            for combination in WIN_COMBINATIONS:
+            for combination in config.WIN_COMBINATIONS:
                 if set(self.local_zero_pos[self.global_field]) & combination == combination:
-                    return (True, ZERO_LETTER, combination)
+                    return (True, config.ZERO_LETTER, combination)
 
                 elif set(self.local_first_pos[self.global_field]) & combination == combination:
-                    return (True, FIRST_LETTER, combination)
+                    return (True, config.FIRST_LETTER, combination)
 
         return (False,)
 
     def global_win(self):
-        for combination in WIN_COMBINATIONS:
+        for combination in config.WIN_COMBINATIONS:
             if set(self.global_zero_pos) & combination == combination:
-                return (True, ZERO_LETTER, combination)
+                return (True, config.ZERO_LETTER, combination)
 
             elif set(self.global_first_pos) & combination == combination:
-                return (True, FIRST_LETTER, combination)
+                return (True, config.FIRST_LETTER, combination)
 
         return (False,)
 
@@ -383,9 +368,9 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
     def ultimate_tictactoe_swapper(self, var):  # bool->str->num->str
         if type(var) is int:
             if var == 0:
-                return ZERO_LETTER
+                return config.ZERO_LETTER
             if var == 1:
-                return FIRST_LETTER
+                return config.FIRST_LETTER
             if var == -1:
                 return ""
             else:
@@ -393,8 +378,8 @@ class UltimateTicTacToeWindow(QMainWindow, Ui_UltimateTicTacToeWindow):
 
         if type(var) is bool:
             if var:
-                return ZERO_LETTER
+                return config.ZERO_LETTER
             else:
-                return FIRST_LETTER
+                return config.FIRST_LETTER
 
-        return 0 if var == ZERO_LETTER else 1
+        return 0 if var == config.ZERO_LETTER else 1
